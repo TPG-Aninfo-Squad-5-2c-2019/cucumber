@@ -1,2 +1,2 @@
-# hello_world_cucumber
-Hello World Cucumber
+# hello_cucumber
+Hello Cucumber
