@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* RunCucumberTest
+web: java -jar target/hellocucumber-1.0.0-SNAPSHOT.jar
