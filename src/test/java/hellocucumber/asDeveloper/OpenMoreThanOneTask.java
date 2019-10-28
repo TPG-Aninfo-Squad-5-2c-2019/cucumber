@@ -1,4 +1,4 @@
-package hellocucumber;
+package hellocucumber.asDeveloper;
 
 import static org.junit.Assert.assertEquals;
 

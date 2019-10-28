@@ -8,8 +8,8 @@ Feature: Load the hours to a task
     Then the system "<permission>" me to modify the charge of estimated hours that I will contemplate to develop it
 
     Examples: 
-      | status       | permission   |
-		  | assigned     | allow			  |
-      | not_assigned | don't_allow	|
+      | status       | permission    |
+		  | assigned     | allows			   |
+      | not_assigned | doesn't_allow |
 
 		

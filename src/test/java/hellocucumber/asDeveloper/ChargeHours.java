@@ -1,4 +1,4 @@
-package hellocucumber;
+package hellocucumber.asDeveloper;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 
 class Check_load_of_hours{
 	public static String is_task_assigned(String status) {
-		return status.equals("assigned")? "allow":"don't_allow";
+		return status.equals("assigned")? "allows":"doesn't_allow";
 	}
 }
 
