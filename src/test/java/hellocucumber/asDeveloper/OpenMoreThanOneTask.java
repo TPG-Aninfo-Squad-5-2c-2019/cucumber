@@ -10,14 +10,13 @@ import cucumber.api.java.en.When;
 class ComparePriority {
   static String Is_it_more_prioritized_than(String priority, String another_priority) {
 	  String ordinal_number_of_open_task = "first";
-      if(priority.equals("medium")) {
+      if (priority.equals("medium")) {
 		  if(another_priority.equals("high")){
 			  ordinal_number_of_open_task = "second";
 		  }
-	 }else
-		  if(priority.equals("low") && !another_priority.equals("low")){
-			  ordinal_number_of_open_task = "second";
-		  }
+      } else if (priority.equals("low") && !another_priority.equals("low")) {
+          ordinal_number_of_open_task = "second";
+      }
       return ordinal_number_of_open_task;
   }
 }

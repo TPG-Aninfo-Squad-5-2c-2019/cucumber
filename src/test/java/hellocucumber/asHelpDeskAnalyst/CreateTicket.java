@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
 class SolveTicketCreation{
 	public static String solve_ticket_creation(String action, String action2) {
 		return (action.contentEquals("complete") && 
-			action2.contentEquals("select"))? "creates":"doesn't_create";
+			action2.contentEquals("select")) ? "creates" : "doesn't_create";
 	}
 }
 
@@ -17,11 +17,10 @@ public class CreateTicket {
 	String result;
 	
 	@Given("that I select to create a ticket")
-	public void that_I_select_to_create_a_ticket(){}
+	public void that_I_select_to_create_a_ticket () {}
 	
 	@When("I {string} description and {string} the priority")
-	public void I_action1_description_and_action2_the_priority
-	(String action1,String action2) {
+	public void I_action1_description_and_action2_the_priority (String action1,String action2) {
 		result = SolveTicketCreation.solve_ticket_creation(action1,action2);
 	}
 	

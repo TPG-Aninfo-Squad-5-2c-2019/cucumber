@@ -9,16 +9,16 @@ import cucumber.api.java.en.When;
 
 class DetermineField{
 	
-	public static Boolean isCharged(String dateAndTime){
-		return dateAndTime.equals("charged")? true :false;
+	public static Boolean isCharged(String dateAndTime) {
+		return dateAndTime.equals("charged");
 	}
 	
 	public static Boolean isSelected(String status) {
-		return status.equals("selected")? true :false;
+		return status.equals("selected");
 	}
 	
-	public static Boolean areFilled(String comments) {
-		return true;
+	public static Boolean areFilled (String comments) {
+	    return true;
 	}
 }
 
@@ -51,12 +51,12 @@ public class CreateTask{
     }
     
     @And("I {string} the comments_section of the tasks")
-    public void I_comments_action_the_comments_section_of_the_task(String comments_action){
+    public void I_comments_action_the_comments_section_of_the_task(String comments_action) {
     
     	if(DetermineField.isCharged(hours) && DetermineField.isCharged(start_date) && 
     	   DetermineField.isSelected(priority) && DetermineField.isSelected(status)) {
     		isCreated = "created";
-    	}else{
+    	} else {
     		isCreated = "not_created";
     	}
     }

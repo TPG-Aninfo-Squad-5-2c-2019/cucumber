@@ -7,14 +7,14 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 class Permission{
-	public static String givePermission(String action) {
-		return action.contentEquals("select")?"allows_me":"doesn't_allow_me";
+	static String givePermission(String action) {
+		return action.contentEquals("select") ? "allows_me" : "doesn't_allow_me";
 	}
 }
 
 public class ScheduleIncomeAndExpenses {
 	
-	String permission;
+	private String permission;
 	
 	@Given("that I am located on the calendar")
 	public void that_I_am_located_on_the_calendar() {}
@@ -25,7 +25,7 @@ public class ScheduleIncomeAndExpenses {
 	}
 	
 	@Then("the system {string} to enter TYPE, COMPANY, CONCEPT, TOTALS")
-	public void the_system_permission_to_enter_type_company_concept_totals(String permission){
+	public void the_system_permission_to_enter_type_company_concept_totals (String permission){
 		assertEquals(permission,this.permission);
 	}
 

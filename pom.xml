@@ -35,6 +35,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>3.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -56,14 +62,14 @@
                 <version>3.1.0</version>
                 <configuration>
                     <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <classpathPrefix>lib/</classpathPrefix>
-                        <mainClass>hellocucumber.RunCucumberTest</mainClass>
-                    </manifest>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>hellocucumber.RunCucumberTest</mainClass>
+                        </manifest>
                     </archive>
                 </configuration>
-                </plugin>
+            </plugin>
         </plugins>
     </build>
 </project>
