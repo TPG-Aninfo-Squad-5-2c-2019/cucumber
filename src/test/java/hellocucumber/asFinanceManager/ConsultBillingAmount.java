@@ -94,19 +94,19 @@ public class ConsultBillingAmount {
         assertTrue(areas.contains(projects));
     }
 
-    @And("i click on the {area} option")
+    @And("i click on the \"<area>\" option")
     public void i_click_on_the_area_option (String area) {
         WebElement area_option = driver.findElement(By.id(area));
         area_option.click();
     }
 
-    @When("i click on the consult button of the campaign {clicked_campaign}")
-    public void i_click_on_the_consult_button_of_the_campaign (String clicked_campaign) {
-        WebElement campaign = driver.findElement(By.id(clicked_campaign));
+    @When("i click on the consult button of the campaign \"<clicked_area>\"")
+    public void i_click_on_the_consult_button_of_the_campaign (String area) {
+        WebElement campaign = driver.findElement(By.id(area));
         campaign.click();
     }
 
-    @Then("i am on the {area} billing page")
+    @Then("i am on the \"<area>\" billing page")
     public void i_am_on_the_area_billing_page (String area) {
         assertEquals(driver.getTitle(), "Billings for " + area);
     }

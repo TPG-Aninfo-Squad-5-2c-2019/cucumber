@@ -81,18 +81,18 @@ public class ConsultAssignedFounds {
         assertTrue(campaigns.size() > 0);
     }
 
-    @And("i have permissions for the campaign {campaign_name}")
+    @And("i have permissions for the campaign \"<campaign_name>\"")
     public void i_have_permissions_for_the_campaign (String campaign_name) {
 
     }
 
-    @When("i click on the consult button of the campaign {clicked_campaign}")
+    @When("i click on the consult button of the campaign \"<clicked_campaign>\"")
     public void i_click_on_the_consult_button_of_the_campaign (String clicked_campaign) {
         WebElement campaign = driver.findElement(By.id(clicked_campaign));
         campaign.click();
     }
 
-    @Then("{result} appear")
+    @Then("\"<result>\" appear")
     public void result_appear (String result) {
         if (result.equals("the assigned founds")) {
             WebElement assigned_founds = driver.findElement(By.className("campaign-founds"));

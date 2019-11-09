@@ -24,14 +24,14 @@ Feature: Consult billing amount
     Given i am authenticated
     And i navigate to the billings page
     And i have clicked on the selection box
-    When i click on the "<area>" option
+    When i click on the consult button of the campaign "<clicked_area>"
     Then i am on the "<area>" billing page
 
     Examples:
-      | area                |
-      | develop             |
-      | management director |
-      | marketing           |
-      | help desk           |
-      | finance             |
-      | projects            |
+      | clicked_area        | area                |
+      | develop             | develop             |
+      | management director | management director |
+      | marketing           | marketing           |
+      | help desk           | help desk           |
+      | finance             | finance             |
+      | projects            | projects            |
