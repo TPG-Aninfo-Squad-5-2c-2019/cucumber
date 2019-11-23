@@ -1,8 +1,31 @@
-target
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
 .classpath
+.factorypath
 .project
-<<<<<<< HEAD
-.settings/
-=======
 .settings
->>>>>>> aacc38f58808718793f746295ec1b9f3beed815a
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: head">
+	<meta charset="UTF-8" />
+	<title>Clientes</title>
+	<script>
+	
+	</script>
+	
+</head>
+<body>
+	<nav style="height:80px;
+		background-color:#ACACB2;
+		position:absolute;
+		left:200px;
+		margin-top:60px; width:100%">
+		<ins style="margin-top:10px; float:left; position:fixed; margin-left:100px; color:blue; font-size:25px">1. Cartera de clientes</ins>
+	</nav>
+	<header th:replace="layout/header :: header"> </header>
+	
+	<div class="table-responsive" style="position:fixed; top: 200px; left: 400px; width: 80%; right:100pz">
+		<hr style=" width:100%; background-color: #FBF6F5">
+		<ins ><h3 style="margin:2px;bottom:15px" th:text="${titulo}"></h3></ins>
+	
+		
+		<table id="tabla_clientes" class="table table-bordered table-dark" style="width:1300px">
+			<thead>
+				<tr>
+					<th>CUIT</th>
+					<th>Nombre</th>
+					<th>Razon social</th>
+					<th>Direccion</th>
+					<th>Telefono</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr style="cursor: pointer" th:each="cliente : ${clientes}">
+					<td id="CUIT" th:text="${cliente.CUIT}"></td>
+					<td><a class="btn btn-secondary btn-xs"
+						th:href="google.com" th:text="${cliente.nombre}"></a></td>
+					<td th:text="${cliente.razon_social} "></td>
+					<td th:text="${cliente.direccion} "></td>
+					<td th:text="${cliente.telefono} "></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<hr style=" width:100%; background-color: #FBF6F5">
+		<ins><h3 style="" th:text="${titulo_proyectos}"></h3></ins>
+		<table id="tabla_proyectos" class="table table-bordered table-dark" style="width:1300px">
+			<thead>
+				<tr>
+					<th>Proyecto</th>
+					<th>Tipo de proyecto</th>
+					<th>Estado del proyecto</th>
+					<th>Estado de facturacion</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+		<hr style=" width:100%; background-color: #FBF6F5">
+		<ins><h3 style="" th:text="${titulo_productos}"></h3></ins>
+		<table id="tabla_productos" class="table table-bordered table-dark" style="width:1300px">
+			<thead>
+				<tr>
+					<th>Producto</th>
+					<th>Version</th>
+					<th>Cantidad</th>
+					<th>Comentarios</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+		<hr style=" width:100%; background-color: #FBF6F5">
+		
+	</div>
+
+</body>
+</html>
