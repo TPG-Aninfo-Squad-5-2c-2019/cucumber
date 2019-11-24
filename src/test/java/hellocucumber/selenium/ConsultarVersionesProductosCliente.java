@@ -19,7 +19,7 @@ public class ConsultarVersionesProductosCliente {
     	driver  = new ChromeDriver();
     	System.setProperty("webdriver.chrome.driver", "/home/jonathan/Desktop/cucumber/chromedriver");					
         driver.manage().window().maximize();
-        driver.get("https://pepsico1.000webhostapp.com/ClienteTestPepsiCo.html");		
+        driver.get("https://selenium-tests.000webhostapp.com/ClienteTestPepsiCo.html");		
     }		
 
     @When("selecciono {string}")			
