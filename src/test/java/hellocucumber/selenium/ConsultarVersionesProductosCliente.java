@@ -1,5 +1,6 @@
 package hellocucumber.selenium;
-import org.openqa.selenium.By;		
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;		
 
@@ -15,7 +16,7 @@ public class ConsultarVersionesProductosCliente {
 	
 	public ConsultarVersionesProductosCliente(){
 		driver  = new ChromeDriver();
-    	System.setProperty("webdriver.chrome.driver", "/home/jonathan/Desktop/cucumber/chromedriver");					
+    	System.setProperty("webdriver.chrome.driver", "/home/travis/build/TPG-Aninfo-Squad-5-2c-2019/cucumber/chromedriver");					
         driver.manage().window().maximize();
 	}
 	
@@ -28,7 +29,7 @@ public class ConsultarVersionesProductosCliente {
 	public void selecciono_clientes() {
 		//agrego un retraso leve de 3 segundos para mostrar bien la accion
 		try{
-		   Thread.sleep(3000);
+		   Thread.sleep(5000);
     	}catch(InterruptedException e){}
 		driver.findElement(By.name("clientes_button")).click();
 	}
@@ -38,7 +39,7 @@ public class ConsultarVersionesProductosCliente {
 
 		//agrego un retraso leve de 3 segundos para mostrar bien la accion
 		try{
-		   Thread.sleep(3000);
+		   Thread.sleep(5000);
     	}catch(InterruptedException e){}
 	}
 	
@@ -60,11 +61,11 @@ public class ConsultarVersionesProductosCliente {
 
     	driver.findElement(By.name(cliente)).click();
     	try{
-		   Thread.sleep(3000);
+		   Thread.sleep(5000);
     	}catch(InterruptedException e){}
     	driver.findElement(By.name("ir_a_PepsiCo_info")).click();
     	try{
- 		   Thread.sleep(3000);
+ 		   Thread.sleep(5000);
      	}catch(InterruptedException e){}
     	driver.findElement(By.name("ir_a_Coca_info")).click();
     }	
