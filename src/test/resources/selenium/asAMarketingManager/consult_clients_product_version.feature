@@ -4,7 +4,7 @@ Feature: Consult clients product version
   Scenario: Navigation to clients page
     Given i am authenticated
     And i am on the home page
-    When i click on the clients button
+    When i select on the clients section
     Then i am on the clients page
 
   Scenario: Consult all campaigns
