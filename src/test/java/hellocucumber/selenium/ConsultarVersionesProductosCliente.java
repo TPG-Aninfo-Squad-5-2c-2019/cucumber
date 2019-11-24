@@ -16,7 +16,7 @@ public class ConsultarVersionesProductosCliente {
 	
 	public ConsultarVersionesProductosCliente(){
 		driver  = new ChromeDriver();
-    	System.setProperty("webdriver.chrome.driver", "/home/travis/build/TPG-Aninfo-Squad-5-2c-2019/cucumber/chromedriver");					
+    	System.setProperty("webdriver.chrome.driver", "/home/travis/build/TPG-Aninfo-Squad-5-2c-2019/cucumber/chromedriver_travis/chromedriver");					
         driver.manage().window().maximize();
 	}
 	
