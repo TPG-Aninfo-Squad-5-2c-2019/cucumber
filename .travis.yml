@@ -1,2 +1,12 @@
 language: java
 jdk: openjdk8
+
+before_script:
+- wget http://chromedriver.storage.googleapis.com/78.0.3904.105/chromedriver_linux64.zip
+
+- unzip chromedriver_linux64.zip -d /home/travis/build/TPG-Aninfo-Squad-5-2c-2019/cucumber/chromedriver_travis
+
+- export CHROME_BIN=chromium-browser
+
+addons:
+  chrome: stable
