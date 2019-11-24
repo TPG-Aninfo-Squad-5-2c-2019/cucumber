@@ -23,16 +23,15 @@ public class ClienteController {
 	@Autowired 
 	private IVersionProductoDao productoDao;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value="/clients", method=RequestMethod.GET)
 	public String clientes( Model model) {
-		
 		model.addAttribute("titulo", "Datos de clientes");
 		model.addAttribute("clientes", clienteDao.findAll());
 		model.addAttribute("titulo_proyectos","Proyectos asociados");
 		model.addAttribute("titulo_productos","Versiones de productos asociados");
 		model.addAttribute("productos",productoDao.findAll());
 		model.addAttribute("proyectos", proyectoDao.findAll());
-		
-		return "listado";
+		model.addAttribute("page_title", "Clientes");
+		return "clients";
 	}
 }
