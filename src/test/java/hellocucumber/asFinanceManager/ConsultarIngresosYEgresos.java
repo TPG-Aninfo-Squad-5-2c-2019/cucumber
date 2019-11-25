@@ -23,7 +23,7 @@ public class ConsultarIngresosYEgresos {
     
     @Given("i am at the home page")
     public void that_I_am_placed_on_billing () {
-        driver.get("localhost:8080");
+        driver.get("https://squad5-2c-2019.herokuapp.com/");
     }
     
     @When("i select balance link")
@@ -40,12 +40,12 @@ public class ConsultarIngresosYEgresos {
 
     @Given("that I am placed on the balance calendar")
     public void a () {
-        driver.get("localhost:8080/balance");
+        driver.get("https://squad5-2c-2019.herokuapp.com/balance");
     }
     
     @When("i click details button")
     public void b () {
-        driver.findElement(By.id("btn_balance_details")).click();
+        driver.findElement(By.name("btn_details")).click();
     }
 
     @Then("I see the balance details")
