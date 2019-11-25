@@ -15,7 +15,7 @@ public class ConsultarIngresosYEgresos {
     WebDriver driver;
    
     public ConsultarIngresosYEgresos () {
-        System.setProperty("webdriver.chrome.driver", "/home/travis/build/TPG-Aninfo-Squad-5-2c-2019/cucumber/chromedriver_travis/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         driver  = new ChromeDriver();
         driver.manage().window().maximize();
     }
