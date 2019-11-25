@@ -33,7 +33,7 @@ public class ConsultarIngresosYEgresos {
     
     @Given("i am at the finanzas page")
     public void that_I_am_at_the_finanzas_page () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/finanzas");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/finanzas");
     }
     
     @When("i select balance button")
@@ -49,7 +49,7 @@ public class ConsultarIngresosYEgresos {
 
     @Given("that I am placed on the balance")
     public void a () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/balance");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/balance");
     }
     
     @When("i click details button")
