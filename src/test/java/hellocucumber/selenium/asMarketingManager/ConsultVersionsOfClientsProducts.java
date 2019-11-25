@@ -19,7 +19,7 @@ public class ConsultVersionsOfClientsProducts {
 	String cliente;
 	
 	public ConsultVersionsOfClientsProducts () {
-		System.setProperty("webdriver.chrome.driver", "/home/jonathan/Desktop/cucumber/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/home/santiagoaj/Documentos/Aninfo/cucumber/chromedriver");
 		driver  = new ChromeDriver();
         driver.manage().window().maximize();
 	}

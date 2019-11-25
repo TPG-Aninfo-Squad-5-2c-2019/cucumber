@@ -14,11 +14,11 @@ import com.springboot.app.models.entity.IngresoEgreso;
 public class BalanceDetailsController {
     @RequestMapping(value="balance_details", method= RequestMethod.GET)
     public String balanceDetails( Model model) {
-        model.addAttribute("page_title", "Detalles ingresos y egresos");
         List<IngresoEgreso> lista = new ArrayList<IngresoEgreso>();
         IngresoEgreso a = new IngresoEgreso("Egreso", "Edesur", "Pago de Servicios", "50.000");
         lista.add(a);
         model.addAttribute("ingresos_egresos", lista);
+        model.addAttribute("page_title", "BalanceDetails");
         return "balance_details";
     }
 }
