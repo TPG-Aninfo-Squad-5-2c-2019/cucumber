@@ -36,7 +36,6 @@ public class ConsultVersionsOfClientsProducts {
 		driver = new ChromeDriver(chromeOptions);
 		
 		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-		//driver  = new ChromeDriver();
         driver.manage().window().maximize();
 	}
 	
