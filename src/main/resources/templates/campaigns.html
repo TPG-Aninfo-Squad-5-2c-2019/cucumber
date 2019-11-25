@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
+		<style>
+		  .my-custom-scrollbar {
+		    position: relative;
+		    height: 200px;
+		    overflow: auto;
+		  }
+		  .table-wrapper-scroll-y {
+		    display: block;
+		  }
+		</style>
+	</head>
+<body>
+
+
+<header th:replace="layout/header :: header" data-gr-c-s-loaded="true" style="padding-top: 5rem"> </header>
+<br>
+<br>
+<br>
+<h4 >Titulo de campaña</h4>
+<h5>Publicitar New Spring ERP 3.0</h5>
+<hr>
+<h4>Productos asociados a la campaña</h4>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+  <table id="tabla_productos" class="table">
+    <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Version</th>
+      <th>Estado</th>
+      <th>Fecha de salida</th>
+      <th>Clientes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>PSA BA</td>
+      <td>0.5</td>
+      <td>78%</td>
+      <td>21/03/2020</td>
+      <td>
+        <li>Coca-Cola</li>
+        <li>Logistica La Serenisima</li>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+  <table name="descripcion_update" class="table">
+    <thead>
+    <tr>
+      <th>Novedades en esta version</th>
+      <th>Descripción del producto</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <li>
+          Dashboards: ahora la nueva versión posee dashboards descriptivos
+        </li>
+        <li>
+          CRM & Sales: actualizada la vieja versión que se conectaba con el sistema PSA CRM 2.0
+        </li>
+        <li>
+          Purchasing: añadido módulo de purchasing agilizando los ciclos de compra y proceso
+        </li>
+      </td>
+      <td>
+        PSA New Spring ERP es un software de gestión empresarial que permite planificar y controlar los procesos y recursos de negocio de una empresa. Trata de conseguir que todos los datos de la compañía estén integrados y conectados...
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<h4>Presupuesto</h4>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+<h4>Listado de campañas</h4>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+  <table name="campanias" class="table table-responsive">
+    <thead>
+    <tr>
+      <td>Campaña</td>
+      <td>Medio de difusión</td>
+      <td>Fecha de inicio</td>
+      <td>Fecha de finalización</td>
+      <td>Presupuesto asignado</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><a class="btn-primary" href="#">Publicitar New Spring ERP 3.0</a></td>
+      <td>Google Ads</td>
+      <td>10/10/2019</td>
+      <td>12/12/2019</td>
+      <td>100.000</td>
+    </tr>
+    <tr>
+      <td><a class="btn-secondary" href="#">Publicitar CRM 2.1</a></td>
+      <td>Banners en apps móviles</td>
+      <td>9/10/2019</td>
+      <td>11/12/2019</td>
+      <td>95.000</td>
+    </tr>
+    <tr>
+      <td><a class="btn-secondary" href="#">Publicitar e-Commerce PSA Web App v2.0</a></td>
+      <td>Pop-ups</td>
+      <td> 9/11/2019</td>
+      <td>12/12/2019</td>
+      <td>10.000</td>
+    </tr>
+    <tr>
+      <td><a class="btn-secondary" href="#">Publicitar Business Analytics</a></td>
+      <td>E-mail marketing</td>
+      <td>9/10/2019</td>
+      <td>01/05/2019</td>
+      <td>34.000</td>
+    </tr>
+    <tr>
+      <td><a class="btn-secondary" href="#">Publicitar CRM 2.1</a></td>
+      <td>Redes sociales</td>
+      <td>20/11/2019</td>
+      <td>11/06/2019</td>
+      <td>14.000</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script>
+    window.onload = function () {
+
+        var options = {
+            animationEnabled: true,
+            theme: "light2",
+            title:{
+                text: "Final vs Aprobado"
+            },
+            axisX:{
+                valueFormatString: "DD MMM"
+            },
+            axisY: {
+                title: "Valor en $",
+                suffix: "K",
+                minimum: 30
+            },
+            toolTip:{
+                shared:true
+            },
+            legend:{
+                cursor:"pointer",
+                verticalAlign: "bottom",
+                horizontalAlign: "left",
+                dockInsidePlotArea: true,
+                itemclick: toogleDataSeries
+            },
+            data: [{
+                type: "line",
+                showInLegend: true,
+                name: "Presupuesto aprobado",
+                markerType: "square",
+                xValueFormatString: "DD MMM, YYYY",
+                color: "#F08080",
+                yValueFormatString: "#1032F1",
+                dataPoints: [
+                    { x: new Date(2017, 10, 1), y: 40 },
+                    { x: new Date(2017, 10, 2), y: 35 },
+                    { x: new Date(2017, 10, 3), y: 40 },
+                    { x: new Date(2017, 10, 4), y: 35 },
+                    { x: new Date(2017, 10, 5), y: 45 },
+                    { x: new Date(2017, 10, 6), y: 50 },
+                    { x: new Date(2017, 10, 7), y: 45 },
+                    { x: new Date(2017, 10, 8), y: 40 },
+                    { x: new Date(2017, 10, 9), y: 45},
+                    { x: new Date(2017, 10, 10), y: 40 },
+                    { x: new Date(2017, 10, 11), y: 46 },
+                    { x: new Date(2017, 10, 12), y: 40 },
+                    { x: new Date(2017, 10, 13), y: 48},
+                    { x: new Date(2017, 10, 14), y: 49 },
+                    { x: new Date(2017, 10, 15), y: 50 }
+                ]
+            },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Presupuesto final",
+                    lineDashType: "dash",
+                    yValueFormatString: "#1032F1",
+                    dataPoints: [
+                        { x: new Date(2017, 10, 1), y: 40 },
+                        { x: new Date(2017, 10, 2), y: 35 },
+                        { x: new Date(2017, 10, 3), y: 40 },
+                        { x: new Date(2017, 10, 4), y: 35 },
+                        { x: new Date(2017, 10, 5), y: 45 },
+                        { x: new Date(2017, 10, 6), y: 50 },
+                        { x: new Date(2017, 10, 7), y: 47 },
+                        { x: new Date(2017, 10, 8), y: 42 },
+                        { x: new Date(2017, 10, 9), y: 45},
+                        { x: new Date(2017, 10, 10), y: 42 },
+                        { x: new Date(2017, 10, 11), y: 47},
+                        { x: new Date(2017, 10, 12), y: 43 },
+                        { x: new Date(2017, 10, 13), y: 44},
+                        { x: new Date(2017, 10, 14), y: 48 },
+                        { x: new Date(2017, 10, 15), y: 51 }
+                    ]
+                }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
+
+        function toogleDataSeries(e){
+            if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            } else{
+                e.dataSeries.visible = true;
+            }
+            e.chart.render();
+        }
+
+    }
+</script>
+</body>
+</html>
