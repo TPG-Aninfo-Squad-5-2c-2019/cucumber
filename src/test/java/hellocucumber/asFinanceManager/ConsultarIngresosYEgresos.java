@@ -30,7 +30,6 @@ public class ConsultarIngresosYEgresos {
 
 		driver = new ChromeDriver(chromeOptions);
 		
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         driver.manage().window().maximize();
     }
     
