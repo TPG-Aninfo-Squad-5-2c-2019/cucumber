@@ -1,9 +1,13 @@
 package hellocucumber.asFinanceManager;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -29,23 +33,23 @@ public class ConsultarIngresosYEgresos {
     
     @Given("i am at the finanzas page")
     public void that_I_am_at_the_finanzas_page () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/finanzas");
     }
     
     @When("i select balance button")
     public void i_select_balance_button () {
-        driver.findElement(By.name("btn_finance_balance")).click();
+        driver.findElement(By.name("btn_balance")).click();
     }
 
     @Then("i am at the balance page")
     public void i_am_at_the_balance_page () {
-        assertEquals("", driver.getTitle());
+        assertEquals("Balance", driver.findElement(By.name("balance_page")).getText());
         driver.close();
     }
 
     @Given("that I am placed on the balance")
     public void a () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/balance");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/balance");
     }
     
     @When("i click details button")
@@ -55,7 +59,9 @@ public class ConsultarIngresosYEgresos {
 
     @Then("I see the balance details")
     public void c () {
-        assertEquals("Detalles ingresos y egresos", driver.getTitle());
+        assertEquals("BalanceDetails", driver.findElement(By.name("balance_details_page")).getText());
+        List<WebElement> ingresos_y_egresos = driver.findElements(By.cssSelector("#tabla_ingresos_y_egresos > tbody > tr"));
+        assertTrue(ingresos_y_egresos.size() == 2);
         driver.close();
     }
     

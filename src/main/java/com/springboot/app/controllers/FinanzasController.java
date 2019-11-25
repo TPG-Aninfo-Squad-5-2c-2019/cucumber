@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class FinanzasController {
     @RequestMapping(value="/finanzas", method= RequestMethod.GET)
     public String finanzas( Model model) {
-        model.addAttribute("page_title", "Finanzas");
         return "finanzas";
     }
 }

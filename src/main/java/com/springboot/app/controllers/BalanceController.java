@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BalanceController {
     @RequestMapping(value="/balance", method= RequestMethod.GET)
     public String balance( Model model) {
-        model.addAttribute("page_title", "Balance");
         return "balance";
     }
 }
