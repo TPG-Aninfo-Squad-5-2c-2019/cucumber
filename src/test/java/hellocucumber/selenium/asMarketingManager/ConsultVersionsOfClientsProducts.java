@@ -19,7 +19,7 @@ public class ConsultVersionsOfClientsProducts {
 	String cliente;
 	
 	public ConsultVersionsOfClientsProducts () {
-		System.setProperty("webdriver.chrome.driver", "/home/santiagoaj/Documentos/Aninfo/cucumber/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/home/travis/build/TPG-Aninfo-Squad-5-2c-2019/cucumber/chromedriver_travis/chromedriver");
 		driver  = new ChromeDriver();
         driver.manage().window().maximize();
 	}
