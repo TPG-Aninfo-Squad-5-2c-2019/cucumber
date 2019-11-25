@@ -37,17 +37,17 @@ public class ConsultarIngresosYEgresos {
     
     @Given("i am at the finanzas page")
     public void that_I_am_at_the_finanzas_page () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/finanzas");
+        driver.get("https://squad5-2c-2019.herokuapp.com/");
     }
     
     @When("i select balance button")
     public void i_select_balance_button () {
-        driver.findElement(By.name("btn_balance")).click();
+        driver.findElement(By.name("btn_finance_balance")).click();
     }
 
     @Then("i am at the balance page")
     public void i_am_at_the_balance_page () {
-        assertEquals("Balance", driver.getTitle());
+        assertEquals("", driver.getTitle());
         driver.close();
     }
 
@@ -63,7 +63,7 @@ public class ConsultarIngresosYEgresos {
 
     @Then("I see the balance details")
     public void c () {
-        assertEquals("BalanceDetails", driver.getTitle());
+        assertEquals("Detalles ingresos y egresos", driver.getTitle());
         driver.close();
     }
     
