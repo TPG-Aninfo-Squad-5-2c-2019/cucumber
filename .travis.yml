@@ -1,19 +1,6 @@
 language: java
 jdk: openjdk8
 
-before_script:
-  - wget http://chromedriver.storage.googleapis.com/78.0.3904.105/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip -d /home/travis/build/TPG-Aninfo-Squad-5-2c-2019/cucumber/chromedriver_travis
-  - export CHROME_BIN=chromium-browser
-
-before_install:
-  - "export DISPLAY=99:0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
-
-addons:
-  chrome: stable
-
 addons: # get google-chrome-stable
   chrome: stable
 install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
