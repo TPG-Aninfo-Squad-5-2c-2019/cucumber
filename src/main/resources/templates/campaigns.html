@@ -1,22 +1,27 @@
 <!DOCTYPE HTML>
-<html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/header :: head"></head>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
+		<style>
+		  .my-custom-scrollbar {
+		    position: relative;
+		    height: 200px;
+		    overflow: auto;
+		  }
+		  .table-wrapper-scroll-y {
+		    display: block;
+		  }
+		</style>
+	</head>
 <body>
-<style>
-  .my-custom-scrollbar {
-    position: relative;
-    height: 200px;
-    overflow: auto;
-  }
-  .table-wrapper-scroll-y {
-    display: block;
-  }
-</style>
+
 
 <header th:replace="layout/header :: header" data-gr-c-s-loaded="true" style="padding-top: 5rem"> </header>
-
-<h4>Titulo de campaña</h4>
+<br>
+<br>
+<br>
+<h4 >Titulo de campaña</h4>
 <h5>Publicitar New Spring ERP 3.0</h5>
 <hr>
 <h4>Productos asociados a la campaña</h4>
@@ -75,7 +80,7 @@
     </tbody>
   </table>
 </div>
-
+<br>
 <h4>Presupuesto</h4>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
