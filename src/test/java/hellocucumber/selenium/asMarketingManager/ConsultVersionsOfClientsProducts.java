@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import cucumber.api.java.en.Given;		
 import cucumber.api.java.en.Then;		
@@ -27,15 +26,8 @@ public class ConsultVersionsOfClientsProducts {
 		chromeOptions.addArguments("--headless");
 		chromeOptions.addArguments("--disable-gpu");
 
-		final DesiredCapabilities dc = new DesiredCapabilities();
-		dc.setJavascriptEnabled(true);
-		dc.setCapability(
-			ChromeOptions.CAPABILITY, chromeOptions
-		);
-
 		driver = new ChromeDriver(chromeOptions);
 		
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         driver.manage().window().maximize();
 	}
 	
