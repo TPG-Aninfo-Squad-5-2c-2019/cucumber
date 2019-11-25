@@ -1,8 +1,11 @@
 package hellocucumber.selenium.asMarketingManager;
-import org.openqa.selenium.By;		
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import cucumber.api.java.en.Given;		
 import cucumber.api.java.en.Then;		
@@ -19,8 +22,20 @@ public class ConsultVersionsOfClientsProducts {
 	String cliente;
 	
 	public ConsultVersionsOfClientsProducts () {
-		System.setProperty("webdriver.chrome.driver", "/home/santiagoaj/Documentos/Aninfo/cucumber/chromedriver");
-		driver  = new ChromeDriver();
+		final ChromeOptions chromeOptions = new ChromeOptions();
+    	chromeOptions.setBinary("/usr/bin/google-chrome-stable");
+		chromeOptions.addArguments("--headless");
+		chromeOptions.addArguments("--disable-gpu");
+
+		final DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setJavascriptEnabled(true);
+		dc.setCapability(
+			ChromeOptions.CAPABILITY, chromeOptions
+		);
+
+		driver = new ChromeDriver(chromeOptions);
+		
+		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         driver.manage().window().maximize();
 	}
 	
