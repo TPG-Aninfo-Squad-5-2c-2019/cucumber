@@ -31,35 +31,34 @@ public class ConsultarIngresosYEgresos {
     }
     
     
-    @Given("i am at the finanzas page")
-    public void that_I_am_at_the_finanzas_page () {
+    @Given("que estoy situado en finanzas")
+    public void aa () {
         driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/finanzas");
     }
     
-    @When("i select balance button")
-    public void i_select_balance_button () {
-        driver.findElement(By.name("btn_balance")).click();
+    @When("selecciono calendario de ingresos y egresos")
+    public void bb () {
+        driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
     }
 
-    @Then("i am at the balance page")
-    public void i_am_at_the_balance_page () {
-        assertEquals("Balance", driver.findElement(By.name("balance_page")).getText());
+    @Then("el sistema me muestra las fechas para consultar ingresos y egresos")
+    public void cc () {
+        assertEquals("Detalles del 01/11/2019", driver.findElement(By.name("btn_details")).getText());
         driver.close();
     }
 
-    @Given("that I am placed on the balance")
+    @Given("que estoy situado en el calendario de ingresos y egresos")
     public void a () {
-        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/balance");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/calendario_ingresos_egresos");
     }
     
-    @When("i click details button")
+    @When("selecciono ver detalles de un dia")
     public void b () {
         driver.findElement(By.name("btn_details")).click();
     }
 
-    @Then("I see the balance details")
+    @Then("el sistema me informa: TIPO,EMPRESA,CONCEPTO, IMPORTE")
     public void c () {
-        assertEquals("BalanceDetails", driver.findElement(By.name("balance_details_page")).getText());
         List<WebElement> ingresos_y_egresos = driver.findElements(By.cssSelector("#tabla_ingresos_y_egresos > tbody > tr"));
         assertTrue(ingresos_y_egresos.size() == 2);
         driver.close();
