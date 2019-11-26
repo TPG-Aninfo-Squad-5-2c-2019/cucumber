@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+		  crossorigin="anonymous">
+		  
+	<style>
+	  .my-custom-scrollbar {
+	    position: relative;
+	    height: 200px;
+	    overflow: auto;
+	  }
+	  .table-wrapper-scroll-y {
+	    display: block;
+	  }
+	</style>
+</head>
+<body>
+<header th:replace="layout/header :: header"></header>
+<table class="table">
+  <thead>
+  <tr>
+    <td><h4>Periodo reportado</h4></td>
+    <td><h4>Responsable</h4></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><h5>01/11/2019</h5></td>
+    <td><h5>Roberto Ratio</h5></td>
+  </tr>
+  </tbody>
+</table>
+
+<a name="btn_details" href="balance_details.html" type="button">Detalles del dia</a>
+<h4>Resumen de ingresos por periodo</h4>
+<table class="table">
+  <thead>
+  <tr>
+    <td style="width:450px">
+      <div id="chartContainer" style="width: 100%; height: 300px"></div>
+    </td>
+    <td style="width:400px; left:100px">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <table style="width:50%" class="table-condensed table-bordered table-striped">
+              <thead>
+              <tr>
+                <th colspan="7">
+                  <span class="btn-group">
+                      <a class="btn"><i class="icon-chevron-left"></i></a>
+                  	<a class="btn active">Noviembre 2019</a>
+                  	<a class="btn"><i class="icon-chevron-right"></i></a>
+                  </span>
+                </th>
+              </tr>
+              <tr>
+                <th>Su</th>
+                <th>Mo</th>
+                <th>Tu</th>
+                <th>We</th>
+                <th>Th</th>
+                <th>Fr</th>
+                <th>Sa</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="muted">29</td>
+                <td class="muted">30</td>
+                <td class="muted">31</td>
+                <td class="btn-primary"><strong>1</strong></td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+              </tr>
+              <tr>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td class="muted">1</td>
+                <td class="muted">2</td>
+                <td class="muted">3</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+  </thead>
+</table>
+<script type="text/javascript">
+    window.onload = function() {
+        $("#chartContainer").CanvasJSChart({
+
+            axisY: {
+                title: "Valor en $"
+            },
+            data: [
+                {
+                    type: "bar",
+                    toolTipContent: "{label}: US$ {y} billion",
+                    dataPoints: [
+
+                        { label: "Cobro de contratos de soporte", y: 198  },
+                        { label: "Pago de clientes en fecha", y: 250.1},
+                        { label: "Pago de clientes en mora", y: 248  },
+
+
+                        { label: "Pago de servicios", y: 464  },
+                        { label: "Pago de sueldos", y: 492  },
+                        { label: "Compra de infraestructura", y: 502.3}
+                    ]
+                }
+            ]
+        });
+    }
+</script>
+</body>
+</html>

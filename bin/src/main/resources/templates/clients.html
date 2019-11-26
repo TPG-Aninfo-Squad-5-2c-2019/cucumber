@@ -20,15 +20,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr style="cursor: pointer" th:each="cliente : ${clientes}">
+				<tr style="cursor: pointer" th:each="cliente : ${listado_clientes}">
 					<td id="CUIT" th:text="${cliente.CUIT}"></td>
 					<td><a class="btn btn-secondary btn-xs"
-						th:href="@{/clients/} + ${cliente.nombre}" th:text="${cliente.nombre}"></a></td>
+						th:href="google.com" th:text="${cliente.nombre}"></a></td>
 					<td th:text="${cliente.razon_social} "></td>
 					<td th:text="${cliente.direccion} "></td>
-					<td>
-						<p th:each="tel : ${cliente.telefonos}" th:text="${tel}"></p>
-					</td>
+					<!--<td th:text="${cliente.telefono} "></td>-->
 				</tr>
 			</tbody>
 		</table>
@@ -41,18 +39,25 @@
 					<th>Proyecto</th>
 					<th>Tipo de proyecto</th>
 					<th>Estado del proyecto</th>
+					<th>Estado de facturacion</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr style="cursor: pointer" th:each="proyecto : ${proyectos}">
-					<td th:text="${proyecto.nombre}"></td>
-					<td th:text="${proyecto.tipo_de_proyecto}"></td>
-					<td th:text="${proyecto.estado}"></td>
+				<tr>
+					<td>PSA BA 1.1</td>
+					<td>Customización</td>
+					<td>En proceso</td>
+					<td>Sin facturar</td>
 				</tr>
-				
+				<tr>
+					<td>PSA CRM 1.0</td>
+					<td>Implementación</td>
+					<td>En proceso</td>
+					<td>Sin facturar</td>
+				</tr>
 			</tbody>
 		</table>
-	
+		
 		<hr style=" width:100%; background-color: #FBF6F5">
 		<ins><h3 style="" th:text="${titulo_productos}"></h3></ins>
 		<table id="tabla_productos" class="table table-bordered table-dark" style="width:1400px">
@@ -62,31 +67,26 @@
 					<th>Version</th>
 					<th>Cantidad</th>
 					<th>Comentarios</th>
-					<th>Estado de facturacion</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr style="cursor: pointer" th:each="itemFactura : ${facturados}">
-					<td th:text="${itemFactura.item.nombre}"></td>
-					<td th:text="${itemFactura.item.version}"></td>
-					<td th:text="${itemFactura.cantidadFacturada}"></td>
-					<td th:text="${itemFactura.item.comentarios}"></td>
-					<td>
-						<span th:if="${itemFactura.facturado == true}">Facturado</span>
-						<span th:unless="${itemFactura.facturado == true}">Sin Facturar</span>
-					</td>
+				<tr>
+					<td>PSA BA</td>
+					<td>0.5</td>
+					<td>1</td>
+					<td>Versión del producto estable pero desactualizada</td>
+				</tr>
+				<tr>
+					<td>CRM</td>
+					<td>2.1</td>
+					<td>1</td>
+					<td>Versión del producto desactualizada</td>
 				</tr>
 			</tbody>
 		</table>
 		
 		<hr style=" width:100%; background-color: #FBF6F5">
-		<script>
 		
-			function ocultar(a) {
-				alert(a);
-			}
-			
-		</script>
 	</div>
 
 </body>
