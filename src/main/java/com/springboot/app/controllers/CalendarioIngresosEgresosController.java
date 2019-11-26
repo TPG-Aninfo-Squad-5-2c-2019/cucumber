@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class BalanceDetailsController {
-    @RequestMapping(value="/balance_details", method= RequestMethod.GET)
-    public String balanceDetails( Model model) {
-        return "balance_details";
+public class CalendarioIngresosEgresosController {
+    @RequestMapping(value="/calendario_ingresos_egresos", method= RequestMethod.GET)
+    public String calendario_ingresos_egresos( Model model) {
+        return "calendario_ingresos_egresos";
     }
 }

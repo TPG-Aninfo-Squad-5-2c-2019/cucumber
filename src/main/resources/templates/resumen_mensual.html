@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+		  crossorigin="anonymous">
+		  
+	<style>
+	  .my-custom-scrollbar {
+	    position: relative;
+	    height: 200px;
+	    overflow: auto;
+	  }
+	  .table-wrapper-scroll-y {
+	    display: block;
+	  }
+	</style>
+</head>
+<body>
+<header th:replace="layout/header :: header"></header>
+<table class="table">
+    <thead>
+    <tr>
+      <td><h4>Periodo reportado</h4></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><h5>Resumen Mensual: 7 octubre 2019 - 7 noviembre 2019</h5></td>
+    </tr>
+    </tbody>
+  </table>
+<table class="table">
+  <thead>
+  <tr>
+    <td style="width:450px">
+      <div id="chartContainer" style="width: 70%; height: 300px; top:100px"></div>
+    </td>
+  </tr>
+  </thead>
+</table>
+<script type="text/javascript">
+    window.onload = function() {
+        $("#chartContainer").CanvasJSChart({
+
+            axisY: {
+                title: "Valor en $"
+            },
+            data: [
+                {
+                    type: "bar",
+                    toolTipContent: "{label}: US$ {y} billion",
+                    dataPoints: [
+
+                        { label: "Cobro de contratos de soporte", y: 198  },
+                        { label: "Pago de clientes en fecha", y: 250.1},
+                        { label: "Pago de clientes en mora", y: 248  },
+
+
+                        { label: "Pago de servicios", y: 464  },
+                        { label: "Pago de sueldos", y: 492  },
+                        { label: "Compra de infraestructura", y: 502.3}
+                    ]
+                }
+            ]
+        });
+    }
+</script>
+</body>
+</html>
