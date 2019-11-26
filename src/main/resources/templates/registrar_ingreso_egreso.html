@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registar ingreso/egreso</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Registrar ingreso o egreso del 01/11/2019</h1>
+    <form action="#" th:action="@{/registrar_ingreso_egreso}" th:object="${ingresoegreso}" method="post">
+    	<p>Tipo: <input type="text" th:field="*{tipo}" /></p>
+        <p>Empresa: <input type="text" th:field="*{empresa}" /></p>
+        <p>Concepto: <input type="text" th:field="*{concepto}" /></p>
+        <p>Monto: <input type="text" th:field="*{monto}" /></p>
+        <p><input type="submit" value="Registrar" /> <input type="reset" value="Resetear" /></p>
+    </form>
+</body>
+</html>

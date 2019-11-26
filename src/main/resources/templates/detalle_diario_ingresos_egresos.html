@@ -31,17 +31,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Egreso</td>
-					<td>Edesur</td>
-					<td>Pago de Servicios</td>
-					<td>50.000</td>
-				</tr>
-				<tr>
-					<td>Ingreso</td>
-					<td>Coca-Cola</td>
-					<td>Cobro de Contratos de Soporte</td>
-					<td>150.000</td>
+				<tr style="cursor: pointer" th:each="ingresoegreso : ${ingresos_egresos}">
+					<td th:text="${ingresoegreso.tipo}"></td>
+					<td th:text="${ingresoegreso.empresa}"></td>
+					<td th:text="${ingresoegreso.concepto} "></td>
+					<td th:text="${ingresoegreso.monto} "></td>
 				</tr>
 			</tbody>
 		</table>
