@@ -32,10 +32,10 @@
 			</thead>
 			<tbody>
 				<tr style="cursor: pointer" th:each="ingresoegreso : ${ingresos_egresos}">
-					<td th:text="${ingresoegreso.tipo}"></td>
-					<td th:text="${ingresoegreso.empresa}"></td>
-					<td th:text="${ingresoegreso.concepto} "></td>
-					<td th:text="${ingresoegreso.monto} "></td>
+					<td id="tipo" th:text="${ingresoegreso.tipo}"></td>
+					<td id="empresa" th:text="${ingresoegreso.empresa}"></td>
+					<td id="concepto" th:text="${ingresoegreso.concepto} "></td>
+					<td id="monto" th:text="${ingresoegreso.monto} "></td>
 				</tr>
 			</tbody>
 		</table>
