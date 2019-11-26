@@ -38,7 +38,10 @@ public class RegistrarIngresoEgreso {
 
     @Then("el sistema me pide que complete los campos: TIPO,EMPRESA,CONCEPTO,IMPORTE")
     public void c () {
-        assertTrue(driver.findElement(By.name("form_registrar_ingreso_egreso")) != null);
+        assertTrue(driver.findElement(By.id("tipo")) != null);
+        assertTrue(driver.findElement(By.id("empresa")) != null);
+        assertTrue(driver.findElement(By.id("concepto")) != null);
+        assertTrue(driver.findElement(By.id("monto")) != null);
     }
 
 }

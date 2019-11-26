@@ -78,6 +78,9 @@ public class ConsultarIngresosYEgresos {
         assertTrue(ingresos_y_egresos.size() > 0);
         for (WebElement element : ingresos_y_egresos) {
             assertTrue(element.findElement(By.id("tipo"))!= null);
+            assertTrue(element.findElement(By.id("empresa"))!= null);
+            assertTrue(element.findElement(By.id("concepto"))!= null);
+            assertTrue(element.findElement(By.id("monto"))!= null);
         }
         driver.close();
     }
