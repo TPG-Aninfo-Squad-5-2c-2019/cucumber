@@ -43,7 +43,7 @@ public class ConsultarIngresosYEgresos {
 
     @Then("el sistema me muestra las fechas para consultar ingresos y egresos")
     public void cc () {
-        assertEquals("Detalles del 01/11/2019", driver.findElement(By.name("btn_details")).getText());
+        assertEquals("Ver ingresos y egresos del 01/11/2019", driver.findElement(By.name("btn_diario_ingresos_egresos")).getText());
         driver.close();
     }
 
@@ -52,17 +52,32 @@ public class ConsultarIngresosYEgresos {
         driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/calendario_ingresos_egresos");
     }
     
-    @When("selecciono ver detalles de un dia")
+    @When("selecciono una fecha")
     public void b () {
-        driver.findElement(By.name("btn_details")).click();
+        driver.findElement(By.name("btn_diario_ingresos_egresos")).click();
     }
 
-    @Then("el sistema me informa: TIPO,EMPRESA,CONCEPTO, IMPORTE")
+    @Then("el sistema me muestra todos los importes de los ingresos/egresos de la fecha")
     public void c () {
+        driver.close();
+    }
+
+    @Given("que estoy situado sobre los montos de los ingresos/egresos de una fecha")
+    public void aaa () {
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/diario_ingresos_egresos");
+    }
+    
+    @When("selecciono ver detalles")
+    public void bbb () {
+        driver.findElement(By.name("btn_detalles_ingreso_egreso")).click();
+    }
+
+    @Then("el sistema me informa por cada ingreso y egreso: TIPO,EMPRESA,CONCEPTO, IMPORTE")
+    public void ccc () {
         List<WebElement> ingresos_y_egresos = driver.findElements(By.cssSelector("#tabla_ingresos_y_egresos > tbody > tr"));
         assertTrue(ingresos_y_egresos.size() == 2);
         assertEquals(ingresos_y_egresos.get(0).getText(), "Egreso Edesur Pago de Servicios 50.000");
-        assertEquals(ingresos_y_egresos.get(1).getText(), "Ingreso Coca-Colas Cobro de Contratos de Soporte 150.000");
+        assertEquals(ingresos_y_egresos.get(1).getText(), "Ingreso Coca-Cola Cobro de Contratos de Soporte 150.000");
         driver.close();
     }
     
