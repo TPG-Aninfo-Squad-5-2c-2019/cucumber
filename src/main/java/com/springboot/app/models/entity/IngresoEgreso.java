@@ -6,7 +6,9 @@ public class IngresoEgreso{
 	private String empresa;
 	private String concepto;
 	private String monto;
-    
+	
+	public IngresoEgreso() {}
+	
     public IngresoEgreso(String tipo, String empresa, String concepto, String monto) {
         this.tipo = tipo;
         this.empresa = empresa;

@@ -30,42 +30,33 @@
     </tr>
     </tbody>
   </table>
-<table class="table">
-  <thead>
-  <tr>
-    <td style="width:450px">
-      <div id="chartContainer" style="width: 70%; height: 300px; top:100px"></div>
-    </td>
-  </tr>
-  </thead>
-</table>
 <a name="btn_detalles_ingreso_egreso" href="detalle_diario_ingresos_egresos" type="button">Ver detalle</a>
-<script type="text/javascript">
-    window.onload = function() {
-        $("#chartContainer").CanvasJSChart({
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  window.onload = function() {
+      var pontos = /*[[${pontos}]]*/ 'default';
+      var data = []  
+      
+      var chart = new CanvasJS.Chart("chartContainer", {
+        axisY: {
+          title: "Valor en $ (miles)"
+        },
+        data: [{        
+          type: "bar",       
+          dataPoints: data
+        }]
+      });
+  
+      pontos.forEach(myFunction);
+      function myFunction(value, index, array) {
+        data.push({label : value.concepto, y: parseFloat(value.monto)}) 
+      }
 
-            axisY: {
-                title: "Valor en $"
-            },
-            data: [
-                {
-                    type: "bar",
-                    toolTipContent: "{label}: US$ {y} billion",
-                    dataPoints: [
-
-                        { label: "Cobro de contratos de soporte", y: 198  },
-                        { label: "Pago de clientes en fecha", y: 250.1},
-                        { label: "Pago de clientes en mora", y: 248  },
-
-
-                        { label: "Pago de servicios", y: 464  },
-                        { label: "Pago de sueldos", y: 492  },
-                        { label: "Compra de infraestructura", y: 502.3}
-                    ]
-                }
-            ]
-        });
-    }
-</script>
+      chart.render();		
+  }	
+  /*]]>*/
+  </script>
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>
