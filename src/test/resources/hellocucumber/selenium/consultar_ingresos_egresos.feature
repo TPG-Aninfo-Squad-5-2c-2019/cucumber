@@ -9,9 +9,9 @@ Feature: Consultar Ingresos y Egresos
   Scenario: Ver importes de una fecha
     Given que estoy situado sobre el calendario de ingresos y egresos
     When selecciono una fecha
-    Then el sistema me muestra todos los importes de los ingresos/egresos de la fecha
+    Then el sistema me muestra todos los importes de los ingresos y egresos de la fecha
 
   Scenario: Consultar detalles de ingresos y egresos de la fecha
-    Given que estoy situado sobre los montos de los ingresos/egresos de una fecha
+    Given que estoy situado sobre los montos de los ingresos y egresos de una fecha
     When selecciono ver detalles
 	  Then el sistema me informa por cada ingreso y egreso: TIPO,EMPRESA,CONCEPTO, IMPORTE

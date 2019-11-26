@@ -47,7 +47,7 @@ public class ConsultarIngresosYEgresos {
         driver.close();
     }
 
-    @Given("que estoy situado en el calendario de ingresos y egresos")
+    @Given("que estoy situado sobre el calendario de ingresos y egresos")
     public void a () {
         driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/calendario_ingresos_egresos");
     }
@@ -57,12 +57,12 @@ public class ConsultarIngresosYEgresos {
         driver.findElement(By.name("btn_diario_ingresos_egresos")).click();
     }
 
-    @Then("el sistema me muestra todos los importes de los ingresos/egresos de la fecha")
+    @Then("el sistema me muestra todos los importes de los ingresos y egresos de la fecha")
     public void c () {
         driver.close();
     }
 
-    @Given("que estoy situado sobre los montos de los ingresos/egresos de una fecha")
+    @Given("que estoy situado sobre los montos de los ingresos y egresos de una fecha")
     public void aaa () {
         driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/diario_ingresos_egresos");
     }
