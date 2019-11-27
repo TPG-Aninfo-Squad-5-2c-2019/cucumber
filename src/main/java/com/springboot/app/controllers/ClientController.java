@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.springboot.app.models.dao.ClientDao;
-import com.springboot.app.models.entitys.Cliente;
-import com.springboot.app.models.entitys.ItemFactura;
-import com.springboot.app.models.entitys.Proyecto;
-import com.springboot.app.models.entitys.VersionProducto;
+import com.springboot.app.models.entity.Cliente;
+import com.springboot.app.models.entity.Proyecto;
+
 
 @Controller
 public class ClientController {
@@ -42,20 +41,25 @@ public class ClientController {
 	@GetMapping(value = "/clients/{nombre}")
 	public String selectedClient(@PathVariable(value = "nombre") String nombre, Model model) {
 		
+		int indice = 3;
+		
 		List<Proyecto> proyectos = new ArrayList<>();
 		List<Cliente> clientes = ClientDao.getClients();
-		model.addAttribute("indice",3);
+		
 		if(nombre.equals("Coca-Cola")) {
-			proyectos = ClientDao.getProyectos(0);
+			indice = 0;
+			proyectos = ClientDao.getProyectos(indice);
 		}else
 			if(nombre.equals("PepsiCO")) {
-				proyectos = ClientDao.getProyectos(1);
-				model.addAttribute("indice",1);
+				indice = 1;
+				proyectos = ClientDao.getProyectos(indice);
 			}else
 				if(!nombre.equals("Coca-Cola") &&
 				   !nombre.equals("PepsiCO") ) {
 					return "redirect:/{nombre}";
 				}
+		
+		model.addAttribute("indice", indice);
 		
 		addToModel(model,clientes,proyectos);
 		

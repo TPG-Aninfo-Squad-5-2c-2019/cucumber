@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.springboot.app.models.dao.CampaignDao;
-import com.springboot.app.models.entitys.Campaign;
+import com.springboot.app.models.entity.Campaign;
 
 @Controller
 public class CampaignsController {

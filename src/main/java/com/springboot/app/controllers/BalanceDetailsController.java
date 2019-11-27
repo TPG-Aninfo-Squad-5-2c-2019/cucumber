@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.springboot.app.models.entitys.IngresoEgreso;
+import com.springboot.app.models.entity.IngresoEgreso;
 
 import java.util.List;
 import java.util.ArrayList;

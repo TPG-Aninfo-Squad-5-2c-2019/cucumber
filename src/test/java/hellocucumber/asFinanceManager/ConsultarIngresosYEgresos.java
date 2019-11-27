@@ -1,9 +1,13 @@
 package hellocucumber.asFinanceManager;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -27,35 +31,57 @@ public class ConsultarIngresosYEgresos {
     }
     
     
-    @Given("i am at the finanzas page")
-    public void that_I_am_at_the_finanzas_page () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/");
+    @Given("que estoy situado en finanzas")
+    public void aa () {
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/finanzas");
     }
     
-    @When("i select balance button")
-    public void i_select_balance_button () {
-        driver.findElement(By.name("btn_finance_balance")).click();
+    @When("selecciono calendario de ingresos y egresos")
+    public void bb () {
+        driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
     }
 
-    @Then("i am at the balance page")
-    public void i_am_at_the_balance_page () {
-        assertEquals("", driver.getTitle());
+    @Then("el sistema me muestra las fechas para consultar ingresos y egresos")
+    public void cc () {
+        assertEquals("Ver ingresos y egresos del 01/11/2019", driver.findElement(By.name("btn_diario_ingresos_egresos")).getText());
         driver.close();
     }
 
-    @Given("that I am placed on the balance")
+    @Given("que estoy situado sobre el calendario de ingresos y egresos")
     public void a () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/balance");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/calendario_ingresos_egresos");
     }
     
-    @When("i click details button")
+    @When("selecciono una fecha")
     public void b () {
-        driver.findElement(By.name("btn_details")).click();
+        driver.findElement(By.name("btn_diario_ingresos_egresos")).click();
     }
 
-    @Then("I see the balance details")
+    @Then("el sistema me muestra todos los importes de los ingresos y egresos de la fecha")
     public void c () {
-        assertEquals("Detalles ingresos y egresos", driver.getTitle());
+        driver.close();
+    }
+
+    @Given("que estoy situado sobre los montos de los ingresos y egresos de una fecha")
+    public void aaa () {
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/diario_ingresos_egresos");
+    }
+    
+    @When("selecciono ver detalles")
+    public void bbb () {
+        driver.findElement(By.name("btn_detalles_ingreso_egreso")).click();
+    }
+
+    @Then("el sistema me informa por cada ingreso y egreso: TIPO,EMPRESA,CONCEPTO, IMPORTE")
+    public void ccc () {
+        List<WebElement> ingresos_y_egresos = driver.findElements(By.cssSelector("#tabla_ingresos_y_egresos > tbody > tr"));
+        assertTrue(ingresos_y_egresos.size() > 0);
+        for (WebElement element : ingresos_y_egresos) {
+            assertTrue(element.findElement(By.id("tipo"))!= null);
+            assertTrue(element.findElement(By.id("empresa"))!= null);
+            assertTrue(element.findElement(By.id("concepto"))!= null);
+            assertTrue(element.findElement(By.id("monto"))!= null);
+        }
         driver.close();
     }
     

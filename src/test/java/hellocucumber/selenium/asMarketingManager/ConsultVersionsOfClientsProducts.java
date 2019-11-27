@@ -33,7 +33,7 @@ public class ConsultVersionsOfClientsProducts {
 	
 	@Given("i navigate to the home page")
 	public void i_navigate_to_the_home_page () {
-		driver.get("https://squad5-2c-2019.herokuapp.com/");
+		driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/");
 	}
 	
 	@When("i select clients link")
@@ -47,9 +47,9 @@ public class ConsultVersionsOfClientsProducts {
 		driver.close();
 	}
 
-	/*@Given("i navigate to the clients page")
+	@Given("i navigate to the clients page")
 	public void i_navigate_to_the_clients_page () {
-		driver.get("https://squad5-2c-2019.herokuapp.com/clients");
+		driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/clients");
 	}
 
 	@Then("i see a list of all the clients")
@@ -57,5 +57,5 @@ public class ConsultVersionsOfClientsProducts {
         List<WebElement> clients = driver.findElements(By.cssSelector("#tabla_clientes > tbody > tr"));
         assertTrue(clients.size() > 0);
 		driver.close();
-	}*/
+	}
 }
