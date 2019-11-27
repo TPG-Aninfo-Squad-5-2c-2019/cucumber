@@ -1,4 +1,4 @@
-package com.springboot.app.models.entitys;
+package com.springboot.app.models.entity;
 
 public class ItemFacturaEmpleadoIT {
 	

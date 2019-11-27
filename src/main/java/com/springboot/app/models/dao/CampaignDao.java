@@ -3,9 +3,9 @@ package com.springboot.app.models.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.springboot.app.models.entitys.Campaign;
-import com.springboot.app.models.entitys.Cliente;
-import com.springboot.app.models.entitys.VersionProducto;
+import com.springboot.app.models.entity.Campaign;
+import com.springboot.app.models.entity.Cliente;
+import com.springboot.app.models.entity.VersionProducto;
 
 public class CampaignDao {
 	

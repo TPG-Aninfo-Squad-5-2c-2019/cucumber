@@ -3,10 +3,10 @@ package com.springboot.app.models.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.springboot.app.models.entitys.Cliente;
-import com.springboot.app.models.entitys.ItemFactura;
-import com.springboot.app.models.entitys.Proyecto;
-import com.springboot.app.models.entitys.VersionProducto;
+import com.springboot.app.models.entity.Cliente;
+import com.springboot.app.models.entity.ItemFactura;
+import com.springboot.app.models.entity.Proyecto;
+import com.springboot.app.models.entity.VersionProducto;
 
 public class ClientDao {
 	

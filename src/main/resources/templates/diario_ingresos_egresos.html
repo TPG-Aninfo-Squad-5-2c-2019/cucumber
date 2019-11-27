@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+		  crossorigin="anonymous">
+		  
+	<style>
+	  .my-custom-scrollbar {
+	    position: relative;
+	    height: 200px;
+	    overflow: auto;
+	  }
+	  .table-wrapper-scroll-y {
+	    display: block;
+	  }
+	</style>
+</head>
+<body>
+<header th:replace="layout/header :: header"></header>
+<table class="table">
+    <thead>
+    <tr>
+      <td><h4>Periodo reportado</h4></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><h5>Importes del 01/11/2019</h5></td>
+    </tr>
+    </tbody>
+  </table>
+<a name="btn_detalles_ingreso_egreso" href="detalle_diario_ingresos_egresos" type="button">Ver detalle</a>
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  window.onload = function() {
+      var pontos = /*[[${pontos}]]*/ 'default';
+      var data = []  
+      
+      var chart = new CanvasJS.Chart("chartContainer", {
+        axisY: {
+          title: "Valor en $ (miles)"
+        },
+        data: [{        
+          type: "bar",       
+          dataPoints: data
+        }]
+      });
+  
+      pontos.forEach(myFunction);
+      function myFunction(value, index, array) {
+        data.push({label : value.concepto, y: parseFloat(value.monto)}) 
+      }
+
+      chart.render();		
+  }	
+  /*]]>*/
+  </script>
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

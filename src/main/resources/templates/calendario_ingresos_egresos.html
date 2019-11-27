@@ -22,25 +22,19 @@
   <thead>
   <tr>
     <td><h4>Periodo reportado</h4></td>
-    <td><h4>Responsable</h4></td>
   </tr>
   </thead>
   <tbody>
   <tr>
     <td><h5>01/11/2019</h5></td>
-    <td><h5>Roberto Ratio</h5></td>
   </tr>
   </tbody>
 </table>
-
-<a name="btn_details" href="balance_details.html" type="button">Detalles del dia</a>
-<h4>Resumen de ingresos por periodo</h4>
+<a name="btn_diario_ingresos_egresos" href="diario_ingresos_egresos" type="button">Ver ingresos y egresos del 01/11/2019</a>
+<a name="btn_registra_ingreso_egreso" href="registrar_ingreso_egreso" type="button">Registrar ingreso o egreso del 01/11/2019</a>
 <table class="table">
   <thead>
   <tr>
-    <td style="width:450px">
-      <div id="chartContainer" style="width: 100%; height: 300px"></div>
-    </td>
     <td style="width:400px; left:100px">
       <div class="container">
         <div class="row">
@@ -121,32 +115,5 @@
   </tr>
   </thead>
 </table>
-<script type="text/javascript">
-    window.onload = function() {
-        $("#chartContainer").CanvasJSChart({
-
-            axisY: {
-                title: "Valor en $"
-            },
-            data: [
-                {
-                    type: "bar",
-                    toolTipContent: "{label}: US$ {y} billion",
-                    dataPoints: [
-
-                        { label: "Cobro de contratos de soporte", y: 198  },
-                        { label: "Pago de clientes en fecha", y: 250.1},
-                        { label: "Pago de clientes en mora", y: 248  },
-
-
-                        { label: "Pago de servicios", y: 464  },
-                        { label: "Pago de sueldos", y: 492  },
-                        { label: "Compra de infraestructura", y: 502.3}
-                    ]
-                }
-            ]
-        });
-    }
-</script>
 </body>
 </html>
