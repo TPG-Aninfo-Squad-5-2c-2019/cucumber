@@ -47,8 +47,9 @@ public class CampaignsController {
     			if(campaign_name.equals("clients")) {
     				return "redirect:/clients";
     			}else
-    				if(campaign_name.equals("campaigns")) {
-    					return "redirect:/campaigns";
+    				if(!campaign_name.equals("Publicitar New Spring ERP 3.0") &&
+    				   !campaign_name.equals("Publicitar CRM 2.1") ) {
+    					return "redirect:/{campaign_title}";
     				}
     	
     	/** add to model **/

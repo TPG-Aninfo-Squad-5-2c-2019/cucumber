@@ -52,8 +52,9 @@ public class ClientController {
 				proyectos = ClientDao.getProyectos(1);
 				model.addAttribute("indice",1);
 			}else
-				if(nombre.equals("campaigns")) {
-					return "redirect:/campaigns";
+				if(!nombre.equals("Coca-Cola") &&
+				   !nombre.equals("PepsiCO") ) {
+					return "redirect:/{nombre}";
 				}
 		
 		addToModel(model,clientes,proyectos);
