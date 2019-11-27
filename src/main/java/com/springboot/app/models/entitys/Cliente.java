@@ -1,6 +1,7 @@
 package com.springboot.app.models.entitys;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
@@ -15,7 +16,7 @@ public class Cliente {
 	
 	private List <String> telefonos;
 	
-	private List <ItemFactura> facturados;
+	private List <ItemFactura> facturados = new ArrayList<>();
 	
 	private List <SLA> acuerdosNivelDeServicio;
 	
@@ -32,7 +33,7 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 	
-	public List<ItemFactura> getFacturas() {
+	public List<ItemFactura> getFacturados() {
 		return facturados;
 	}
 	
@@ -44,8 +45,8 @@ public class Cliente {
 		acuerdosNivelDeServicio.add(sla);
 	}
 	
-	public void agregarFactura(ItemFactura factura) {
-		facturados.add(factura);
+	public void agregarFacturado(ItemFactura facturado) {
+		facturados.add(facturado);
 	}
 	
 	public String getNombre() {

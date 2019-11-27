@@ -19,7 +19,6 @@ public class Campaign {
 	private VersionProducto vp;
 	
 	List<Cliente> clientes;
-	
 
 	public Campaign(String campaign_name, String medio_de_difusion, String fecha_inicio, String fecha_fin,
 			Double presupuesto, List<Cliente> clients) {
