@@ -3,8 +3,7 @@ Feature: Consultar Ingresos y Egresos
 
   Scenario: Ir al calendario de ingresos y egresos
     Given que estoy situado en mi espacio de trabajo
-    When selecciono finanzas 
-    And luego calendario de ingresos y egresos
+    When selecciono calendario de ingresos y egresos
     Then el sistema me muestra las fechas para consultar ingresos y egresos
 
   Scenario: Ver importes de una fecha

@@ -1,6 +1,8 @@
 package com.springboot.app.models.entity;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmpleadoIT {
 	
@@ -11,6 +13,8 @@ public class EmpleadoIT {
 	List<String> skills;
 	
 	List<Tarea> tareas;
+
+	Map<String, Integer> productividadPorProyecto = new HashMap<String, Integer>();
 	
 	public List<Tarea> getTareas() {
 		return tareas;
@@ -25,6 +29,10 @@ public class EmpleadoIT {
 		this.nombre = nombre;
 		this.seniority = seniority;
 		this.skills = skills;
+	}
+
+	public EmpleadoIT(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	public String getNombre() {
@@ -47,4 +55,11 @@ public class EmpleadoIT {
 		this.seniority = newSeniority;
 	}
 	
+	public void addProductividadPorProyecto(String nombreProyecto, Integer productividad) {
+		productividadPorProyecto.put(nombreProyecto, productividad);
+	}
+
+	public Map<String, Integer> getDataProductividad() {
+		return this.productividadPorProyecto;
+	}
 }
