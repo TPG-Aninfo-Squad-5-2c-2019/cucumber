@@ -40,9 +40,9 @@
     </thead>
     <tbody>
         <tr style="cursor: pointer" th:each="data : ${desarrolladores_data}">
-            <td th:text="${data.nombreDesarrollador}"></td>
-            <td th:text="${data.nombreProyecto}"></td>
-            <td th:text="${data.nivelEsfuerzo}"></td>
+            <td id="nombreDesarrollador" th:text="${data.nombreDesarrollador}"></td>
+            <td id="nombreProyecto" th:text="${data.nombreProyecto}"></td>
+            <td id="nivelEsfuerzo" th:text="${data.nivelEsfuerzo}"></td>
         </tr>
         
     </tbody>

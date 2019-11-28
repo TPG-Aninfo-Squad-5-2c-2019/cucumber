@@ -33,11 +33,12 @@ public class ConsultarIngresosYEgresos {
     
     @Given("que estoy situado en finanzas")
     public void aa () {
-        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/finanzas");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/");
     }
     
     @When("selecciono calendario de ingresos y egresos")
     public void bb () {
+        driver.findElement(By.name("btn_finanzas")).click();
         driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
     }
 
