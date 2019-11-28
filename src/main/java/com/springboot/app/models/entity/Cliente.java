@@ -14,6 +14,8 @@ public class Cliente {
 	
 	private String direccion;
 	
+	private Boolean destacado;
+	
 	private List <String> telefonos;
 	
 	private List <ItemFactura> facturados = new ArrayList<>();
@@ -85,5 +87,13 @@ public class Cliente {
 	}
 	public void setTelefonos(List<String> telefonos) {
 		this.telefonos = telefonos;
+	}
+
+	public Boolean getDestacado() {
+		return destacado;
+	}
+
+	public void setDestacado(Boolean destacado) {
+		this.destacado = destacado;
 	}
 }

@@ -1,6 +1,5 @@
 package com.springboot.app.models.entity;
 
-import java.util.Date;
 import java.util.List;
 
 public class VersionProducto{

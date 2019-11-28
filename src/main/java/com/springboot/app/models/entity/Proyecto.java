@@ -48,7 +48,6 @@ public class Proyecto{
 		this.estado = estado;
 	}
 	
-
 	public Proyecto(VersionProducto productoVersion, String estado) {
 		super();
 		this.productoVersion = productoVersion;

@@ -22,7 +22,6 @@ public class CampaignsController {
     @RequestMapping(value="/campaigns")
     public String campaigns(Model model) {
     	
-    	
     	List<Campaign> list = CampaignDao.getCampaigns();
     	
     	/** add to model **/
