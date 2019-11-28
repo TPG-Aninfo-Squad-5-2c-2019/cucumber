@@ -38,7 +38,7 @@ public class ConsultarIngresosYEgresos {
     
     @When("selecciono calendario de ingresos y egresos")
     public void bb () {
-        driver.findElement(By.name("btn_finanzas")).click();
+        driver.findElement(By.id("btn_finanzas")).click();
         driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
     }
 

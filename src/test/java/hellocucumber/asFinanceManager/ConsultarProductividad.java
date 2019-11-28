@@ -33,6 +33,7 @@ public class ConsultarProductividad {
 
     @When("selecciono la sección de desarrolladores")
     public void b () {
+        driver.findElement(By.id("btn_finanzas")).click();
         driver.findElement(By.name("btn_productividad_desarroladores")).click();
     }
 
