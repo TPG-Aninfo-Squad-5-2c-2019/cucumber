@@ -34,17 +34,13 @@ public class ConsultarIngresosYEgresos {
     
     @Given("que estoy situado en mi espacio de trabajo")
     public void aa () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/");
     }
     
-    @When("selecciono finanzas")
-    public void bb1 () {
-        driver.findElement(By.name("finance_button")).click();
-    }
-    
-    @And("luego calendario de ingresos y egresos")
-    public void bb2() {
-    	driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
+    @When("selecciono calendario de ingresos y egresos")
+    public void bb () {
+        driver.findElement(By.id("btn_finanzas")).click();
+        driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
     }
 
     @Then("el sistema me muestra las fechas para consultar ingresos y egresos")
