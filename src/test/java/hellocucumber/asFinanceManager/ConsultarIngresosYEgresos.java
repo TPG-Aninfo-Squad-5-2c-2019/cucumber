@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -31,14 +32,19 @@ public class ConsultarIngresosYEgresos {
     }
     
     
-    @Given("que estoy situado en finanzas")
+    @Given("que estoy situado en mi espacio de trabajo")
     public void aa () {
-        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/finanzas");
+        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/");
     }
     
-    @When("selecciono calendario de ingresos y egresos")
-    public void bb () {
-        driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
+    @When("selecciono finanzas")
+    public void bb1 () {
+        driver.findElement(By.name("finance_button")).click();
+    }
+    
+    @And("luego calendario de ingresos y egresos")
+    public void bb2() {
+    	driver.findElement(By.name("btn_calendario_ingresos_egresos")).click();
     }
 
     @Then("el sistema me muestra las fechas para consultar ingresos y egresos")
