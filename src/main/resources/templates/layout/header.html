@@ -31,10 +31,31 @@
 					</li>
 					<li class="nav-item">
 						<a id="clients-link" class="nav-link" href="clients" tabindex="-1">Clientes</a>
+						
 					</li>
-					<li class="nav-item"><a  name="clientes_button" class="nav-link" href="campaigns" tabindex="-1">Marketing</a></li>
 					<li class="nav-item">
-						<a  name="finanzas_button" class="nav-link" href="finanzas" tabindex="-1">Finanzas</a>
+						<div class="btn-group">
+							  <button class="nav-link btn btn-xs dropdown-toggle"
+							          type="button" data-toggle="dropdown">
+							    Marketing 
+							  <span class="caret"></span>
+							  </button>
+						  	  <ul class="dropdown-menu" role="menu">
+							    <li><a href="campaigns">Campañas</a></li>
+							  </ul>
+						</div>
+					</li>
+					<li class="nav-item">
+						<div class="btn-group">
+							  <button class="nav-link btn btn-xs dropdown-toggle"
+							          type="button" data-toggle="dropdown">
+							    Finanzas 
+							    <span class="caret"></span>
+							  </button>
+						  	  <ul class="dropdown-menu" role="menu">
+							    <li><a name="btn_calendario_ingresos_egresos" href="calendario_ingresos_egresos" type="button">Calendario de ingresos/egresos</a></li>
+							  </ul>
+						</div>
 					</li>
 				</ul>
 			</div>
