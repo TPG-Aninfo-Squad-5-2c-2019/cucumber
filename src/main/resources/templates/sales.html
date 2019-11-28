@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+<title>Ventas</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 		  crossorigin="anonymous">
 <meta charset="UTF-8">
 </head>
 <body>
+	<br>
+	<br>
+	<br>
+	<h3></h3>
+	<table class="table bordered-table">
+		<thead>
+			<tr>
+				<td>Seleccione Dia</td>
+				<td>Seleccione Mes</td>
+				<td>Seleccione Año</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<select>
+						<option>01</option>
+					</select>
+				</td>
+				<td>.
+					<select>
+						<option>11</option>
+					</select>
+				</td>
+				<td>
+					<select>
+						<option>2019</option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
 	<header th:replace="layout/header :: header"></header>
 	<h3 th:text="${titulo}"></h3>
 	<table class="table">
@@ -23,7 +57,7 @@
 			<tr th:each="venta : ${ventas}">
 				<td th:text="${venta.comprador.nombre}"></td>
 				<td th:text="${venta.comprador.nombre}"></td>
-				<td th:text="${venta.productoVendido.nombre venta.productoVendido.version}"></td>
+				<td th:text="${venta.productoVendido.nombre} + ${venta.productoVendido.version}"></td>
 				<td th:text="${venta.estadoFacturacion}"></td>
 				<td th:text="${venta.cantidadVendida}"></td>
 			</tr>
