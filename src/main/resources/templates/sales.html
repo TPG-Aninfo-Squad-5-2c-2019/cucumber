@@ -48,18 +48,23 @@
 			<tr>
 				<td>Producto vendido</td>
 				<td>Comprador</td>
-				<td>Fecha</td>
 				<td>Estado de facturacion</td>
-				<td>cantidad</td>
+				<td>Cantidad</td>
+				<td>Importe unitario ($)</td>
+				<td>Importe total ($)</td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="venta : ${ventas}">
+			<td th:text="${venta.itemVendido.item.nombre} + ${venta.itemVendido.item.version}"></td>
 				<td th:text="${venta.comprador.nombre}"></td>
-				<td th:text="${venta.comprador.nombre}"></td>
-				<td th:text="${venta.productoVendido.nombre} + ${venta.productoVendido.version}"></td>
-				<td th:text="${venta.estadoFacturacion}"></td>
-				<td th:text="${venta.cantidadVendida}"></td>
+				<td>
+					<span th:if="${venta.itemVendido.facturado}">Facturado</span>
+					<span th:unless="${venta.itemVendido.facturado}">sin Facturar</span>
+				</td>
+				<td th:text="${venta.itemVendido.cantidad}"></td>
+				<td th:text="${venta.itemVendido.importe_unitario}"></td>
+				<td th:text="${venta.itemVendido.importe_total}"></td>
 			</tr>
 		</tbody>
 	</table>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.springboot.app.models.entity.Cliente;
+import com.springboot.app.models.entity.ItemFactura;
 import com.springboot.app.models.entity.Venta;
 import com.springboot.app.models.entity.VersionProducto;
 
@@ -17,31 +18,43 @@ public class VentaDao {
 		if(ventaDao == null) {
 			ventaDao =  new VentaDao();
 			
-			ventas.add(new Venta(new VersionProducto("CRM","1.5"), new Cliente("Gobierno nacional"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("ERP","0.5"), new Cliente("Firma SA"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("PSA BA","1.5"), new Cliente("Sa Pastel"),"1-11-2019", "sin facturar", 1));
-			ventas.add(new Venta(new VersionProducto("CRM","0.5"), new Cliente("Swiss Sa"),"1-11-2019", "facturado", 10));
-			ventas.add(new Venta(new VersionProducto("BA","0.5"), new Cliente("Swiss Sa"),"1-11-2019", "sin facturar", 3));
-			ventas.add(new Venta(new VersionProducto("ERP","1.3"), new Cliente("Firma SA"),"1-11-2019", "sin facturar", 100));
-			ventas.add(new Venta(new VersionProducto("CRM","0.1"), new Cliente("PepsiCo"),"1-11-2019", "sin facturar", 10));
-			ventas.add(new Venta(new VersionProducto("ERP","0.5"), new Cliente("PepsiCo"),"1-11-2019", "facturado", 2));
-			ventas.add(new Venta(new VersionProducto("PSA New Spring ERP","0.5"), new Cliente("Marcela H"),"1-11-2019", "sin facturar", 20));
-			ventas.add(new Venta(new VersionProducto("ERP","2.4"), new Cliente("PepsiCo"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("CRM","0.5"), new Cliente("Coca-Cola"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("ERP","0.5"), new Cliente("Eduardo P"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("CRM","5.6"), new Cliente("PepsiCo"),"1-11-2019", "facturado", 9));
-			ventas.add(new Venta(new VersionProducto("CRM","0.5"), new Cliente("Coca-Cola"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("ERP","0.5"), new Cliente("Marcela H"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("PSA New Spring ERP","0.5"), new Cliente("Marcela H"),"1-11-2019", "sin facturar", 2));
-			ventas.add(new Venta(new VersionProducto("PSA New Spring ERP","0.5"), new Cliente("Coca-Cola"),"1-11-2019", "sin facturar", 5));
-			ventas.add(new Venta(new VersionProducto("ERP","5.8"), new Cliente("Gobierno nacional"),"1-11-2019", "facturado", 2));
-			ventas.add(new Venta(new VersionProducto("CRM","8.0"), new Cliente("Marcelo G"),"1-11-2019", "sin facturar", 9));
-			ventas.add(new Venta(new VersionProducto("ERP","0.5"), new Cliente("Coca-Cola"),"1-11-2019", "sin facturar", 1));
-			ventas.add(new Venta(new VersionProducto("CRM","1.0"), new Cliente("Cristina K"),"1-11-2019", "facturado", 2));
-			ventas.add(new Venta(new VersionProducto("BA","5.6"), new Cliente("MM"),"1-11-2019", "sin facturar", 8));
-			ventas.add(new Venta(new VersionProducto("CRM","0.5"), new Cliente("La Serenisima"),"1-11-2019", "sin facturar", 4));
-			ventas.add(new Venta(new VersionProducto("ERP","4.5"), new Cliente("Johana Gutierrez"),"1-11-2019", "sin facturar", 2));
-			
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("CRM","1.5"),
+													 1, 13.000), new Cliente("Swiss Sa"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(true, new VersionProducto("ERP","0.5"),
+													 2, 12.000), new Cliente("Firma SA"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 2, 50.000), new Cliente("Marcelo G"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 2, 14.000), new Cliente("Firma SA"),"1-11-2019"));										 
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 2, 20.000), new Cliente("La Serenisima"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("PSA New Spring ERP","0.5"),
+													 3, 10.000), new Cliente("Sa Pastel"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(true, new VersionProducto("ERP","0.5"),
+													 4, 22.000), new Cliente("Coca-Cola"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("PSA New Spring ERP","1.5"),
+													 5, 50.000), new Cliente("Gobierno nacional"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 7, 4.000), new Cliente("Firma SA"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 100, 50.000), new Cliente("Swiss Sa"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("PSA New Spring ERP","2.5"),
+													 20, 50.000), new Cliente("Firma SA"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 4, 50.000), new Cliente("Swiss Sa"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(true, new VersionProducto("CRM","8.0"),
+													 8, 50.000), new Cliente("Coca-Cola"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 10, 5.000), new Cliente("Swiss Sa"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("CRM","5.0"),
+													 2, 50.000), new Cliente("Gobierno nacional"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("ERP","0.5"),
+													 3, 6.000), new Cliente("Coca-Cola"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(true, new VersionProducto("ERP","0.5"),
+													 50, 7.000), new Cliente("Firma SA"),"1-11-2019"));
+			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("CRM","8.0"),
+													 8, 5.000), new Cliente("Marcela H"),"1-11-2019"));
+													 
 		}
 		return ventaDao;
 	}

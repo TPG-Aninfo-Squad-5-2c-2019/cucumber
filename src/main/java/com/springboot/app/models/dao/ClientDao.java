@@ -92,23 +92,23 @@ public class ClientDao {
 		/*** Facturados ***/
 		Map <String, List<ItemFactura>> mapaDeFacturados =  new HashMap<>();
 		List<ItemFactura> items = new ArrayList<>();
-		items.add(new ItemFactura(true, new VersionProducto("CRM","0.5"), 2));
-		items.add(new ItemFactura(true, new VersionProducto("CRM","2.1"), 1));
+		items.add(new ItemFactura(true, new VersionProducto("CRM","0.5"), 2,1.0));
+		items.add(new ItemFactura(true, new VersionProducto("CRM","2.1"), 1,1.0));
 		mapaDeFacturados.put("Coca-Cola", items);
 		items = new ArrayList<>();
 		
-		items.add(new ItemFactura(true, new VersionProducto("PSA BA","1.5"), 1));
-		items.add(new ItemFactura(false, new VersionProducto("CRM","2.1"), 5));
+		items.add(new ItemFactura(true, new VersionProducto("PSA BA","1.5"), 1,1.0));
+		items.add(new ItemFactura(false, new VersionProducto("CRM","2.1"), 5,1.0));
 		mapaDeFacturados.put("PepsiCO", items);
 		items = new ArrayList<>();
-		items.add(new ItemFactura(false, new VersionProducto("ERP","1.5"), 10));
-		items.add(new ItemFactura(false, new VersionProducto("CRM","2.1"), 4));
+		items.add(new ItemFactura(false, new VersionProducto("ERP","1.5"), 10,1.0));
+		items.add(new ItemFactura(false, new VersionProducto("CRM","2.1"), 4,1.0));
 		mapaDeFacturados.put("La Serenisima", items);
 		items = new ArrayList<>();
 		
-		items.add(new ItemFactura(false, new VersionProducto("PSA New Spring ERP","0.5"), 7));
-		items.add(new ItemFactura(false, new VersionProducto("CRM","2.1"), 9));
-		items.add(new ItemFactura(true, new VersionProducto("ERP old","2.5"), 9));
+		items.add(new ItemFactura(false, new VersionProducto("PSA New Spring ERP","0.5"), 7,1.0));
+		items.add(new ItemFactura(false, new VersionProducto("CRM","2.1"), 9,1.0));
+		items.add(new ItemFactura(true, new VersionProducto("ERP old","2.5"), 9,1.0));
 		mapaDeFacturados.put("Johana Gutierrez", items);
 		
 		return mapaDeFacturados;
