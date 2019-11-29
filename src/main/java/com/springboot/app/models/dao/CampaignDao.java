@@ -58,8 +58,7 @@ public class CampaignDao {
     	Campaign c2 = new Campaign("Publicitar CRM 2.1","Banners en apps móviles","9/10/2019","11/12/2019",95.000,clientes2);
     	c2.setVp(p2);
     	c2.setPresupuesto_final(100.000);
-    	
-    	/****/
+
     	List<Campaign> campaigns = new ArrayList<>();
     	campaigns.add(c1);
     	campaigns.add(c2);

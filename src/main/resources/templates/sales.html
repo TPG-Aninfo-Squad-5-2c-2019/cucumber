@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
+	<header th:replace="layout/header :: header"></header>
 	<br>
 	<br>
 	<br>
@@ -24,24 +25,28 @@
 			<tr>
 				<td>
 					<select>
-						<option>01</option>
+						<option th:each="i : ${#numbers.sequence(1, 31)}" th:text="${ i }" th:attr="selected=${i == 16}" />
 					</select>
 				</td>
 				<td>.
 					<select>
-						<option>11</option>
+						<option th:each="i : ${#numbers.sequence(1, 12)}" th:text="${ i }" th:attr="selected=${i == 8}" />
 					</select>
 				</td>
 				<td>
 					<select>
-						<option>2019</option>
+						<option th:each="i : ${#numbers.sequence(2000, 2019)}" th:text="${ i }" th:attr="selected=${i == 2019}" />
 					</select>
 				</td>
 			</tr>
 		</tbody>
 	</table>
-	
-	<header th:replace="layout/header :: header"></header>
+
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-success m-3" data-toggle="modal" data-target="#nuevaVenta">
+		Crear una nueva venta
+	</button>
+
 	<h3 th:text="${titulo}"></h3>
 	<table class="table">
 		<thead>
@@ -56,7 +61,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="venta : ${ventas}">
-			<td th:text="${venta.itemVendido.item.nombre} + ${venta.itemVendido.item.version}"></td>
+			<td th:text="${venta.itemVendido.item.nombre} + ${' '} + ${venta.itemVendido.item.version}"></td>
 				<td th:text="${venta.comprador.nombre}"></td>
 				<td>
 					<span th:if="${venta.itemVendido.facturado}">Facturado</span>
@@ -68,5 +73,58 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<!-- Modal -->
+	<div class="modal fade" id="nuevaVenta" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Nueva venta</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="/sales/add" method="post">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="input-producto">Producto</label>
+							<input name="producto" class="form-control" id="input-producto" required>
+						</div>
+						<div class="form-group">
+							<label for="input-version">Version</label>
+							<input name="version" class="form-control" id="input-version" required>
+						</div>
+						<div class="form-group">
+							<label for="input-cantidad">Cantidad</label>
+							<input name="cantidad" type="number" class="form-control" id="input-cantidad" required>
+						</div>
+						<div class="form-group">
+							<label for="input-monto">Monto</label>
+							<input name="monto" type="number" class="form-control" id="input-monto" required>
+						</div>
+						<div class="form-group">
+							<label for="input-cliente">Cliente</label>
+							<select name="cliente" class="form-control" id="input-cliente" required>
+								<option selected disabled></option>
+								<option>Coca-Cola</option>
+								<option>PepsiCO</option>
+								<option>La Serenisima</option>
+								<option>Johana Gutierrez</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="input-fecha">Fecha</label>
+							<input name="fecha" class="form-control" id="input-fecha" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Crear</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
