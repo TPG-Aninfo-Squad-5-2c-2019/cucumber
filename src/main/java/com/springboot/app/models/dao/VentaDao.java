@@ -15,8 +15,9 @@ public class VentaDao {
 	private static List<Venta> ventas =  new ArrayList<>();
 	
 	public static VentaDao getInstance() {
-		if(ventaDao == null) {
-			ventaDao =  new VentaDao();
+		System.out.println(ventaDao);
+		if (ventaDao == null) {
+			ventaDao = new VentaDao();
 			
 			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("CRM","1.5"),
 													 1, 13.000), new Cliente("Swiss Sa"),"1-11-2019"));
@@ -54,7 +55,6 @@ public class VentaDao {
 													 50, 7.000), new Cliente("Firma SA"),"1-11-2019"));
 			ventas.add(new Venta(new ItemFactura(false, new VersionProducto("CRM","8.0"),
 													 8, 5.000), new Cliente("Marcela H"),"1-11-2019"));
-													 
 		}
 		return ventaDao;
 	}

@@ -11,7 +11,7 @@ import com.springboot.app.models.entity.Presupuesto;
 import com.springboot.app.models.entity.VersionProducto;
 
 public class CampaignDao {
-	
+
 	private static CampaignDao campDao =  null;
 	
 	private static List<Campaign> campaigns = new ArrayList<>();

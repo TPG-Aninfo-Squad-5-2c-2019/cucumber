@@ -31,9 +31,9 @@ public class DesarrolladoresController {
 }
 
 class ProductividadDesarrolladorData {
-    String nombreDesarrollador;
-    String nombreProyecto;
-    Integer nivelEsfuerzo;
+    private String nombreDesarrollador;
+    private String nombreProyecto;
+    private Integer nivelEsfuerzo;
 
     ProductividadDesarrolladorData(String nombreDesarrollador, String nombreProyecto, Integer nivelEsfuerzo) {
         this.nombreDesarrollador = nombreDesarrollador;
