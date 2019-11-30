@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.springboot.app.models.dao.ClientDao;
+import com.springboot.app.models.dao.ClienteDestacadoDao;
 import com.springboot.app.models.entity.Cliente;
 import com.springboot.app.models.entity.ItemFactura;
 import com.springboot.app.models.entity.Proyecto;

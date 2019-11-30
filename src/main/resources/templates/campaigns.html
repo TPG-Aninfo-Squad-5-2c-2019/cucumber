@@ -16,64 +16,26 @@
 	</head>
 <body>
 
-<header th:replace="layout/header :: header" data-gr-c-s-loaded="true" style="padding-top: 5rem"> </header>
+<header th:replace="layout/header :: header" data-gr-c-s-loaded="true" 
+		style="padding-top: 5rem"> </header>
 <br>
 <br>
 <br>
+<!-- Button trigger modal -->
+	<button type="button" class="btn btn-secondary m-3" data-toggle="modal" 
+			data-target="#nuevaCampaña" style="float:right">
+		Crear campaña
+	</button>
+	<button type="button" class="btn btn-outline-info m-3" data-toggle="modal" 
+			data-target="#nuevoPresupuesto" style="float:right">
+		Registrar presupuesto 
+	</button>
 <h4 >Titulo de campaña</h4>
-<h5 th:text="${campaigns_list[__${campaign_number}__].campaign_title}"></h5>
+<h5 th:text="${campaign_title}"></h5>
 <hr>
-<h4>Productos asociados a la campaña</h4>
-
-<div class="table-wrapper-scroll-y my-custom-scrollbar">
-  <table id="tabla_productos" class="table">
-    <thead>
-    <tr>
-      <th>Producto</th>
-      <th>Version</th>
-      <th>Estado</th>
-      <th>Fecha de salida</th>
-      <th>Clientes</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-     	<td th:text="${campaigns_list[__${campaign_number}__].vp.nombre}"></td>
-     	<td th:text="${campaigns_list[__${campaign_number}__].vp.version}"></td>
-		<td th:text="${campaigns_list[__${campaign_number}__].vp.estado}"></td>
-		<td th:text="${campaigns_list[__${campaign_number}__].vp.fechaReleaseMercado}"></td>
-		<td >
-			<p th:each="cliente : ${campaigns_list[__${campaign_number}__].clientes}" th:text="${cliente.nombre}"></p>
-		</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-<div class="table-wrapper-scroll-y my-custom-scrollbar">
-  <table name="descripcion_update" class="table">
-    <thead>
-    <tr>
-      <th>Novedades en esta version</th>
-      <th>Descripción del producto</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>
-        <p th:each="feature : ${campaigns_list[__${campaign_number}__].vp.features}"
-            th:text="${feature}">
-        </p>
-      </td>
-      <td th:text="${campaigns_list[__${campaign_number}__].vp.descripcion}">
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
 <br>
 <h4>Presupuesto</h4>
-<button class="nav-link active" th:onclick="'drawing(\'' + ${campaign_number} + '\');'">Ver Presupuesto</button>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+ <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <h4>Listado de campañas</h4>
 
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -84,157 +46,158 @@
       <td>Medio de difusión</td>
       <td>Fecha de inicio</td>
       <td>Fecha de finalización</td>
-      <td>Presupuesto asignado (K)</td>
+      <td>Presupuesto aprobado (K)</td>
+      <td>Presupuesto utilizado (K)</td>
     </tr>
     </thead>
     <tbody>
 
-    <tr th:each="campaign :${campaigns_list}">
-      <td><a th:href="@{/campaigns/} + ${campaign.campaign_title}" th:text="${campaign.campaign_title}" class="btn-secondary" href="#"></a></td>
+    <tr th:each="campaign : ${campaigns_list}">
+      <td><a th:href="@{/campaigns/} + ${campaign.campaign_title}" th:text="${campaign.campaign_title}" class="btn-secondary"></a></td>
       <td th:text="${campaign.medio_de_difusion}"></td>
       <td th:text="${campaign.fecha_inicio}"></td>
       <td th:text="${campaign.fecha_fin}"></td>
-      <td th:text="${campaign.presupuesto_aprobado}"></td>
+      <td th:text="${campaign.presupuesto_total_aprobado}"></td>
+      <td th:text="${campaign.presupuesto_total_real}"></td>
     </tr>
     </tbody>
   </table>
 </div>
-<script type=text/javascript>
-
-	var arr1 = [
-        { x: new Date(2019, 9, 10), y: 6 },
-        { x: new Date(2019, 9, 11), y: 7},
-        { x: new Date(2019, 9, 12), y: 8 },
-        { x: new Date(2019, 9, 13), y: 9 },
-        { x: new Date(2019, 9, 14), y: 8 },
-        { x: new Date(2019, 9, 15), y: 9 },
-        { x: new Date(2019, 9, 17), y: 8 },
-        { x: new Date(2019, 9, 18), y: 1 },
-        { x: new Date(2019, 9, 19), y: 2},
-        { x: new Date(2019, 9, 20), y: 1 },
-        { x: new Date(2019, 9, 21), y: 2 },
-        { x: new Date(2019, 9, 22), y: 3 },
-        { x: new Date(2019, 9, 23), y: 1},
-        { x: new Date(2019, 9, 26), y: 1 },
-        { x: new Date(2019, 9, 27), y: 5 }
-    	];
+	<!-- Modal Presupuesto utilizado -->
+	<div class="modal fade" id="nuevoPresupuesto" tabindex="-1" role="dialog">
+		<div class="modal-dialog " role="document" style="display:table;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Ingreso de presupuesto utilizado</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<form th:action="@{/presupuesto_creation/} + ${campaign_title}" method="post">
+						<div class="modal-body" th:object="${presupuestoIngresado}">
+							<div class="form-group">
+								<label for="input-titulo">Fecha</label>
+								<input class="form-control" type="text" th:field="*{fecha}" id="input-fecha" required>
+							</div>
+							<div class="form-group">
+								<label for="medio_de_difusion">Monto</label>
+								<input class="form-control" type="text" th:field="*{monto}" id="input-monto" required>
+							</div>
+							<input type="submit" id="submitButton" th:value="Guardar"> 
+							<input type="reset" id="resetButton" name="reset" th:value="Reiniciar"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	
-	var arr2 = [
-		{ x: new Date(2019, 9, 10), y: 6 },
-		{ x: new Date(2019, 9, 11), y: 5},
-		{ x: new Date(2019, 9, 12), y: 4 },
-        { x: new Date(2019, 9, 13), y: 11 },
-        { x: new Date(2019, 9, 14), y: 2 },
-        { x: new Date(2019, 9, 15), y: 10},
-        { x: new Date(2019, 9, 17), y: 8 },
-        { x: new Date(2019, 9, 18), y: 1 },
-        { x: new Date(2019, 9, 19), y: 2},
-        { x: new Date(2019, 9, 20), y: 2 },
-        { x: new Date(2019, 9, 21), y: 5 },
-        { x: new Date(2019, 9, 22), y: 6},
-        { x: new Date(2019, 9, 23), y: 7},
-        { x: new Date(2019, 9, 26), y: 8 },
-        { x: new Date(2019, 9, 27), y: 8 }
-    ];
-	
-	var arr3 = [
-        { x: new Date(2019, 9, 10), y: 1 },
-        { x: new Date(2019, 9, 11), y: 1 },
-        { x: new Date(2019, 9, 12), y: 1 },
-        { x: new Date(2019, 9, 13), y: 2 },
-        { x: new Date(2019, 9, 14), y: 3 },
-        { x: new Date(2019, 9, 15), y: 1 },
-        { x: new Date(2019, 9, 17), y: 10 },
-        { x: new Date(2019, 9, 18), y: 10 },
-        { x: new Date(2019, 9, 19), y: 10},
-        { x: new Date(2019, 9, 20), y: 4 },
-        { x: new Date(2019, 9, 21), y: 4 },
-        { x: new Date(2019, 9, 22), y: 6 },
-        { x: new Date(2019, 9, 23), y: 4},
-        { x: new Date(2019, 9, 26), y: 4 },
-        { x: new Date(2019, 9, 27), y: 5 }
-    	];
+	<!-- Modal new Campaign -->
+	<div class="modal fade" id="nuevaCampaña" tabindex="-1" role="dialog">
+		<div class="modal-dialog " role="document" style="display:table;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Nueva campaña</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<form th:action="@{/campaign_creation}" method="post">
+						<div class="modal-body" th:object="${newCampaign}">
+							<h5>Datos de campaña</h5>
+							<div class="form-group">
+								<label for="input-titulo">Titulo</label>
+								<input class="form-control" type="text" th:field="*{campaign_title}" id="input-titulo" required>
+							</div>
+							<div class="form-group">
+								<label for="medio_de_difusion">Medio de difusión</label>
+								<input class="form-control" type="text" th:field="*{medio_de_difusion}" id="medio_de_difusion" required>
+							</div>
+							<div class="form-group">
+								<label for="fecha_inicio">Fecha de inicio</label>
+								<input class="form-control" type="text" th:field="*{fecha_inicio}" id="fecha_inicio" required>
+							</div>
+							<div class="form-group">
+								<label for="fecha_fin">Fecha de finalización</label>
+								<input class="form-control" type="text" th:field="*{fecha_fin}" id="fecha_fin" required>
+							</div>
+						</div>
+						<div th:object="${form}">
+							<h5>Fecha y monto de presupuesto aprobado</h5>
+							<fieldset>
+								<table>
+									<thead>
+										<tr>
+											<th>Fecha</th>
+											<th>Monto</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="presupuesto, itemStat : *{presupuestos}">
+											<td><input
+												th:field="*{presupuestos[__${itemStat.index}__].fecha}" required /></td>
+											<td><input
+												th:field="*{presupuestos[__${itemStat.index}__].monto}" required/></td>
+										</tr>
+									</tbody>
+								</table>
+							</fieldset>
+							<input type="submit" id="submitButton" th:value="Guardar"> 
+							<input type="reset" id="resetButton" name="reset" th:value="Reiniciar"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<script th:inline="javascript">
+window.onload = function() {
+    var presupuestoAprobado = /*[[${presupuestoAprobado}]]*/ 'default';
+    var presupuestoUtilizado = /*[[${presupuestoUtilizado}]]*/ 'default';
+    
+    var presupuesto_aprobado = [];
+    var presupuesto_utilizado = [];
+    
+    var chart = new CanvasJS.Chart("chartContainer", {
+      axisY: {
+        title: "Valor en $"
+      },
+      data: [{        
+        type: "line",    
+        name: "Presupuesto aprobado",
+    	showInLegend: true,
+		markerType: "square",
+        dataPoints: presupuesto_aprobado
+      },
+      {
+    	 type: "line",   
+    	 lineColor: "red",
+    	 name: "Presupuesto utilizado",
+    	 showInLegend: true,
+ 		 markerType: "square",
+         dataPoints: presupuesto_utilizado
+      }
+      ]
+    });
 
-	var arr4 = [
-		{ x: new Date(2019, 9, 10), y: 1 },
-        { x: new Date(2019, 9, 11), y: 1 },
-        { x: new Date(2019, 9, 12), y: 1 },
-        { x: new Date(2019, 9, 13), y: 2 },
-        { x: new Date(2019, 9, 14), y: 4 },
-        { x: new Date(2019, 9, 15), y: 1 },
-        { x: new Date(2019, 9, 17), y: 10 },
-        { x: new Date(2019, 9, 18), y: 10 },
-        { x: new Date(2019, 9, 19), y: 10},
-        { x: new Date(2019, 9, 20), y: 5 },
-        { x: new Date(2019, 9, 21), y: 4 },
-        { x: new Date(2019, 9, 22), y: 6 },
-        { x: new Date(2019, 9, 23), y: 4},
-        { x: new Date(2019, 9, 26), y: 4 },
-        { x: new Date(2019, 9, 27), y: 5 }
-    	];
-	
-    function drawing(value) {
-    	
-    	if(value == 1){
-    		arr1 = arr3;
-    		arr2 = arr4;
-    	}
+    presupuestoAprobado.forEach(replaceData);
+    presupuestoUtilizado.forEach(replaceData2);
+    
+    function replaceData(value) {
+    	presupuesto_aprobado.push({label : value.fecha, y: value.monto}) 
+    }
+    
+    function replaceData2(value){
+    	presupuesto_utilizado.push({label : value.fecha, y: value.monto}) 
+    }
 
-        var options = {
-            animationEnabled: true,
-            theme: "light2",
-            title:{
-                text: "Final vs Estimado"
-            },
-            axisX:{
-                valueFormatString: "DD MMM YY"
-            },
-            axisY: {
-                title: "Valor en $",
-                suffix: "K",
-                minimum: 0
-            },
-            toolTip:{
-                shared:true
-            },
-            legend:{
-                cursor:"pointer",
-                verticalAlign: "bottom",
-                horizontalAlign: "left",
-                dockInsidePlotArea: true,
-                itemclick: toogleDataSeries
-            },
-            data: [{
-                type: "line",
-                showInLegend: true,
-                name: "Presupuesto estimado",
-                markerType: "square",
-                xValueFormatString: "DD MMM, YYYY",
-                color: "#F08080",
-                yValueFormatString: "#1032F1",
-                dataPoints: arr1,
-            },
-             {
-                 type: "line",
-                 showInLegend: true,
-                 name: "Presupuesto final",
-                 lineDashType: "dash",
-                 yValueFormatString: "#1032F1",
-                 dataPoints: arr2,
-             }]
-        };
-        
-        $("#chartContainer").CanvasJSChart(options);
-        function toogleDataSeries(e){
-            if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                e.dataSeries.visible = false;
-            } else{
-                e.dataSeries.visible = true;
-            }
-            e.chart.render();
-        }
+    chart.render();		
+}	
 
-    };
 </script>
+	
+	<script th:src="@{/js/canvasjs.min.js}"></script>
+	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	
 </body>
 </html>

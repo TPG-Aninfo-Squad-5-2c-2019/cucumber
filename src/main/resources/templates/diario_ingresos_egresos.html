@@ -30,7 +30,8 @@
     </tr>
     </tbody>
   </table>
-<a name="btn_detalles_ingreso_egreso" href="detalle_diario_ingresos_egresos" type="button">Ver detalle</a>
+<a name="btn_detalles_ingreso_egreso" href="detalle_diario_ingresos_egresos" 
+	type="button">Ver detalle</a>
 <script th:inline="javascript">
   /*<![CDATA[*/
   window.onload = function() {
@@ -48,7 +49,7 @@
       });
   
       pontos.forEach(myFunction);
-      function myFunction(value, index, array) {
+      function myFunction(value) {
         data.push({label : value.concepto, y: parseFloat(value.monto)}) 
       }
 
@@ -56,7 +57,5 @@
   }	
   /*]]>*/
   </script>
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>

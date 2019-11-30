@@ -1,9 +1,8 @@
-package com.springboot.app.controllers;
+package com.springboot.app.models.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.springboot.app.models.dao.ClientDao;
 import com.springboot.app.models.entity.Cliente;
 
 public class ClienteDestacadoDao {

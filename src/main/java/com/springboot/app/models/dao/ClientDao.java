@@ -14,6 +14,10 @@ public class ClientDao {
 	
 	private static ClientDao cdao = null;
 	
+	private static Map <String, List<Proyecto>> mapaDeProyectos =  new HashMap<>();
+	
+	private static Map <String, List<ItemFactura>> mapaDeFacturados =  new HashMap<>();
+	
 	private static List<Cliente> clientes =  new ArrayList<>();	
 	
 	public static ClientDao getInstance() {
@@ -58,7 +62,7 @@ public class ClientDao {
 	}
 	
 	private static Map<String,List<Proyecto>> getProjectMap(){
-		Map <String, List<Proyecto>> mapaDeProyectos =  new HashMap<>();
+		
 		Proyecto p1 = new Proyecto("PSA BA 1.1", "Customización", "En proceso");
 		Proyecto p2 = new Proyecto("PSA CRM 1.0", "Implementación", "En proceso");
 		Proyecto p3 = new Proyecto("PSA New Spring ERP 3.0","Customización","En proceso");
@@ -90,7 +94,7 @@ public class ClientDao {
 	
 	private static Map<String,List<ItemFactura>> getFacturadosMap(){
 		/*** Facturados ***/
-		Map <String, List<ItemFactura>> mapaDeFacturados =  new HashMap<>();
+		
 		List<ItemFactura> items = new ArrayList<>();
 		items.add(new ItemFactura(true, new VersionProducto("CRM","0.5"), 2,1.0));
 		items.add(new ItemFactura(true, new VersionProducto("CRM","2.1"), 1,1.0));

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class VersionProducto{
 	
-	private String nombre_producto;
+	private String nombre;
 
 	private String version;
 	
@@ -20,26 +20,29 @@ public class VersionProducto{
 
 	public VersionProducto(String nombre_producto, String version) {
 		super();
-		this.nombre_producto = nombre_producto;
+		this.nombre = nombre_producto;
 		this.version = version;
 		setEstado("0%");
 	}
 
 	public VersionProducto(String nombre_producto, String version, String fechaReleaseMercado, List<String> features) {
 		super();
-		this.nombre_producto = nombre_producto;
+		this.nombre = nombre_producto;
 		this.version = version;
 		this.fechaReleaseMercado = fechaReleaseMercado;
 		this.features = features;
 		setEstado("0%");
 	}
 
+	public VersionProducto() {
+	}
+
 	public String getNombre() {
-		return nombre_producto;
+		return nombre;
 	}
 	
 	public void setNombre(String nombre_producto) {
-		this.nombre_producto = nombre_producto;
+		this.nombre = nombre_producto;
 	}
 	
 	public String getVersion() {

@@ -35,6 +35,10 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 	
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public List<ItemFactura> getFacturados() {
 		return facturados;
 	}
