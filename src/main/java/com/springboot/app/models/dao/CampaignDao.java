@@ -1,14 +1,10 @@
 package com.springboot.app.models.dao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import com.springboot.app.models.entity.Campaign;
-import com.springboot.app.models.entity.Cliente;
 import com.springboot.app.models.entity.Presupuesto;
-import com.springboot.app.models.entity.VersionProducto;
+
 
 public class CampaignDao {
 

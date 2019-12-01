@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.springboot.app.models.dao.ClientDao;
 import com.springboot.app.models.dao.VentaDao;
 import com.springboot.app.models.entity.Venta;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +30,7 @@ public class VentaController {
 
 		m.addAttribute("titulo", "Listado de ventas");
 		m.addAttribute("ventas", ventas);
+		m.addAttribute("clients",ClientDao.getInstance().getClients());
 		
 		return "sales";
 	}

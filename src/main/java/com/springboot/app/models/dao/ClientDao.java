@@ -126,12 +126,20 @@ public class ClientDao {
 	
 	public static List<ItemFactura> getFacturados(String nombre){
 		/*** Productos ***/
-		return getFacturadosMap().get(nombre);
+		List<ItemFactura> list = getFacturadosMap().get(nombre);
+		if(list == null) {
+			list = new ArrayList<>();
+		}
+		return list;
 	}
 	
 	public static List<Proyecto> getProyectos(String nombre){
 		/*** Proyectos ***/
-		return getProjectMap().get(nombre);
+		List<Proyecto> list = getProjectMap().get(nombre);
+		if(list == null) {
+			list = new ArrayList<>();
+		}
+		return list;
 	}
 	
 	public void setDestacado(String nombre, Boolean value) {
@@ -150,6 +158,22 @@ public class ClientDao {
 			}
 		}
 		return null;
+	}
+	
+	public void addClient(Cliente newClient) {
+		clientes.add(newClient);
+	}
+	
+	public void addProject(String nombre, Proyecto proyecto) {
+		List<Proyecto> list = getProyectos(nombre);
+		list.add(proyecto);
+		mapaDeProyectos.put(nombre, list);
+	}
+	
+	public void addFacturado(String nombre, ItemFactura item) {
+		List<ItemFactura> list = getFacturados(nombre);
+		list.add(item);
+		mapaDeFacturados.put(nombre, list);
 	}
 	
 }
