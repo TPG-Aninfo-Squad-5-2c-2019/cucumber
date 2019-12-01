@@ -7,6 +7,6 @@
 1. git clone
 2. abrir terminal en el mismo directorio que pom.xml y correr 'mvn test'
 
-# Selenium Tests
+# Correr Selenium Tests
 
-Se encuentran en la branch "selenium-tests".
+Para poder correrlo se necesita descargar el chromedriver desde esta página https://chromedriver.chromium.org/downloads, ubicarla en el directorio raiz y cambiarle el nombre a "chromedriver".
