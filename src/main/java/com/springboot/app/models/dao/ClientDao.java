@@ -38,13 +38,13 @@ public class ClientDao {
 			
 			/*** Clientes ***/
 			
-			Cliente pepsiCo = new Cliente(50123151,"PepsiCO","PepsiCo-SRL","Cazadores-2860- Munro",
+			Cliente pepsiCo = new Cliente((long) 50123151,"PepsiCO","PepsiCo-SRL","Cazadores-2860- Munro",
 										telefonos_PepsiCo);
-			Cliente CocaCola = new Cliente(5131231,"Coca-Cola", "Coca-Cola-Femsa-de-BA",
+			Cliente CocaCola = new Cliente((long) 5131231,"Coca-Cola", "Coca-Cola-Femsa-de-BA",
 											"Av.-Amancio-Alcorta-3570-C1437-CABA",telefonos_Coca_Cola);
-			Cliente LaSerenisima = new Cliente(53431121,"La Serenisima","Logistica-La-Serenisima" ,
+			Cliente LaSerenisima = new Cliente((long) 53431121,"La Serenisima","Logistica-La-Serenisima" ,
 					"Moreno 877 C1091AAQ CABA",telefonos_La_Serenisima);
-			Cliente Johana = new Cliente(65431312,"Johana Gutierrez","","Cerrito-2020-CABA",telefonos_Jane);
+			Cliente Johana = new Cliente((long) 65431312,"Johana Gutierrez","","Cerrito-2020-CABA",telefonos_Jane);
 			
 			pepsiCo.setDestacado(false);
 			CocaCola.setDestacado(false);

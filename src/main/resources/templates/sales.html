@@ -25,12 +25,12 @@
 			<tr>
 				<td>
 					<select>
-						<option th:each="i : ${#numbers.sequence(1, 31)}" th:text="${ i }" th:attr="selected=${i == 16}" />
+						<option th:each="i : ${#numbers.sequence(1, 31)}" th:text="${ i }" th:attr="selected=${i == 1}" />
 					</select>
 				</td>
 				<td>.
 					<select>
-						<option th:each="i : ${#numbers.sequence(1, 12)}" th:text="${ i }" th:attr="selected=${i == 8}" />
+						<option th:each="i : ${#numbers.sequence(1, 12)}" th:text="${ i }" th:attr="selected=${i == 11}" />
 					</select>
 				</td>
 				<td>

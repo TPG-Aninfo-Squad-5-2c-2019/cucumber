@@ -1,12 +1,13 @@
 package com.springboot.app.models.entity;
 
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
 
-	private Integer CUIT;
+	private Long CUIT;
 	
 	private String nombre;
 	
@@ -22,7 +23,7 @@ public class Cliente {
 	
 	private List <SLA> acuerdosNivelDeServicio;
 	
-	public Cliente(Integer cuit,String nombre, String razon_S, 
+	public Cliente(Long cuit,String nombre, String razon_S, 
 		String direccion,List<String> telefonos) {
 		CUIT = cuit;
 		this.nombre = nombre;
@@ -63,11 +64,11 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 	
-	public Integer getCUIT() {
+	public Long getCUIT() {
 		return CUIT;
 	}
 	
-	public void setCUIT(Integer CUIT) {
+	public void setCUIT(Long CUIT) {
 		this.CUIT = CUIT;
 	}
 	
