@@ -32,7 +32,7 @@ public class ConsultarProductividad {
         driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/");
     }
 
-    @When("selecciono la sección de desarrolladores")
+    @When("selecciono la sección de Empleados")
     public void b () {
         driver.findElement(By.id("btn-employees")).click();
     }

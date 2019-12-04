@@ -31,7 +31,6 @@ public class ConsultarIngresosYEgresos {
         driver.manage().window().maximize();
     }
     
-    
     @Given("que estoy situado en mi espacio de trabajo")
     public void aa () {
         driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/");
@@ -45,7 +44,7 @@ public class ConsultarIngresosYEgresos {
 
     @Then("el sistema me muestra las fechas para consultar ingresos y egresos")
     public void cc () {
-        assertEquals("Ver ingresos y egresos del 01/11/2019", driver.findElement(By.name("btn_diario_ingresos_egresos")).getText());
+        assertEquals("1", driver.findElement(By.name("btn_diario_ingresos_egresos")).getText());
         driver.close();
     }
 
@@ -59,14 +58,14 @@ public class ConsultarIngresosYEgresos {
         driver.findElement(By.name("btn_diario_ingresos_egresos")).click();
     }
 
-    @Then("el sistema me muestra todos los importes de los ingresos y egresos de la fecha")
+    @Then("el sistema me muestra todos los importes de los ingresos, egresos de la fecha")
     public void c () {
-        driver.close();
     }
 
     @And("me informa por cada ingreso y egreso: TIPO,EMPRESA,CONCEPTO, IMPORTE")
     public void ccc () {
-        List<WebElement> ingresos_y_egresos = driver.findElements(By.cssSelector("#tabla_ingresos_y_egresos > tbody > tr"));
+        List<WebElement> ingresos_y_egresos = driver.findElements
+        		(By.cssSelector("#contenedor_ingresos_egresos > #tabla_ingresos_y_egresos > tbody > tr"));
         assertTrue(ingresos_y_egresos.size() > 0);
         for (WebElement element : ingresos_y_egresos) {
             assertTrue(element.findElement(By.id("tipo"))!= null);
