@@ -50,7 +50,7 @@ public class ConsultarIngresosYEgresos {
 
     @Given("que estoy situado sobre el calendario de ingresos y egresos")
     public void a () {
-        driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/calendario_ingresos_egresos");
+        driver.get("https://squad5-2c-2019.herokuapp.com/calendario_ingresos_egresos");
     }
     
     @When("selecciono una fecha")
