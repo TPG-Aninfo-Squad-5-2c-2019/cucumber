@@ -1,119 +1,217 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-		  crossorigin="anonymous">
-		  
-	<style>
-	  .my-custom-scrollbar {
-	    position: relative;
-	    height: 200px;
-	    overflow: auto;
-	  }
-	  .table-wrapper-scroll-y {
-	    display: block;
-	  }
-	</style>
+<head th:replace="layout/header :: head">
+<meta charset="UTF-8">
+
 </head>
 <body>
-<header th:replace="layout/header :: header"></header>
-<table class="table">
-  <thead>
-  <tr>
-    <td><h4>Periodo reportado</h4></td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><h5>01/11/2019</h5></td>
-  </tr>
-  </tbody>
-</table>
-<a name="btn_diario_ingresos_egresos" href="diario_ingresos_egresos" type="button">Ver ingresos y egresos del 01/11/2019</a>
-<a name="btn_registra_ingreso_egreso" href="registrar_ingreso_egreso" type="button">Registrar ingreso o egreso del 01/11/2019</a>
-<table class="table">
-  <thead>
-  <tr>
-    <td style="width:400px; left:100px">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <table style="width:50%" class="table-condensed table-bordered table-striped">
-              <thead>
-              <tr>
-                <th colspan="7">
-                  <span class="btn-group">
-                      <a class="btn"><i class="icon-chevron-left"></i></a>
-                  	<a class="btn active">Noviembre 2019</a>
-                  	<a class="btn"><i class="icon-chevron-right"></i></a>
-                  </span>
-                </th>
-              </tr>
-              <tr>
-                <th>Su</th>
-                <th>Mo</th>
-                <th>Tu</th>
-                <th>We</th>
-                <th>Th</th>
-                <th>Fr</th>
-                <th>Sa</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td class="muted">29</td>
-                <td class="muted">30</td>
-                <td class="muted">31</td>
-                <td class="btn-primary"><strong>1</strong></td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-              </tr>
-              <tr>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-              </tr>
-              <tr>
-                <td>19</td>
-                <td>20</td>
-                <td>21</td>
-                <td>22</td>
-                <td>23</td>
-                <td>24</td>
-                <td>25</td>
-              </tr>
-              <tr>
-                <td>26</td>
-                <td>27</td>
-                <td>28</td>
-                <td>29</td>
-                <td class="muted">1</td>
-                <td class="muted">2</td>
-                <td class="muted">3</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </td>
-  </tr>
-  </thead>
-</table>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div>
+		<h4 style="float: left; position: relative; left:20px">Ingresos y egresos
+			para el periodo reportado</h4>
+		<h4 style="float: right; position: relative; right: 150px">Seleccione
+			una fecha</h4>
+	</div>
+
+	<div id="chartContainer"
+		style="position: relative; height: 370px; width: 65%; float: left; left: 50px;display:table">
+	</div>
+	<div style="position: relative; width: 35%; float: right; left: 250px">
+		<table name="calendario" class="table">
+			<thead>
+				<tr>
+					<td style="width: 400px; left: 100px">
+						<div class="container">
+							<div class="row">
+								<div class="span12">
+									<table style="width: 50%"
+										class="table-condensed table-bordered table-striped">
+										<thead>
+											<tr>
+												<th colspan="7"><span class="btn-group"> <a
+														class="btn"><i class="icon-chevron-left"></i></a>
+														<a class="btn active">Noviembre 2019</a> 
+														<a class="btn"><i class="icon-chevron-right"></i></a>
+												</span></th>
+											</tr>
+											<tr style="cursor: pointer">
+												<th>Su</th>
+												<th>Mo</th>
+												<th>Tu</th>
+												<th>We</th>
+												<th>Th</th>
+												<th>Fr</th>
+												<th>Sa</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="cursor: pointer">
+												<td class="muted">29</td>
+												<td class="muted">30</td>
+												<td class="muted">31</td>
+												<td class="btn-primary"><strong><a name="btn_diario_ingresos_egresos">1</a></strong></td>
+												<td>2</td>
+												<td>3</td>
+												<td>4</td>
+											</tr>
+											<tr style="cursor: pointer">
+												<td>5</td>
+												<td>6</td>
+												<td>7</td>
+												<td>8</td>
+												<td>9</td>
+												<td>10</td>
+												<td>11</td>
+											</tr>
+											<tr style="cursor: pointer">
+												<td>12</td>
+												<td>13</td>
+												<td>14</td>
+												<td>15</td>
+												<td>16</td>
+												<td>17</td>
+												<td>18</td>
+											</tr>
+											<tr style="cursor: pointer">
+												<td>19</td>
+												<td>20</td>
+												<td>21</td>
+												<td>22</td>
+												<td>23</td>
+												<td>24</td>
+												<td>25</td>
+											</tr>
+											<tr style="cursor: pointer">
+												<td>26</td>
+												<td>27</td>
+												<td>28</td>
+												<td>29</td>
+												<td class="muted">1</td>
+												<td class="muted">2</td>
+												<td class="muted">3</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<hr style="width: 100%; background-color: #FBF6F5">
+	<h4 style="float: left; position: relative; left:20px">Detalle de ingresos y
+		egresos para el periodo reportado</h4>
+
+	<div class="table-responsive"
+		style="top: 10px; width: 95%; position: relative; left: 50px">
+
+		<!-- Button trigger modal -->
+		<button name="btn_registra_ingreso_egreso" type="button" class="btn btn-secondary m-3"
+			data-toggle="modal" data-target="#nuevoIngreso">Registrar
+			ingreso/egreso</button>
+		<table id="tabla_ingresos_y_egresos"
+			class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th>Tipo</th>
+					<th>Empresa</th>
+					<th>Concepto</th>
+					<th>Importe</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr style="cursor: pointer"
+					th:each="ingresoegreso : ${ingresos_egresos}">
+					<td id="tipo" th:text="${ingresoegreso.tipo}"></td>
+					<td id="empresa" th:text="${ingresoegreso.empresa}"></td>
+					<td id="concepto" th:text="${ingresoegreso.concepto} "></td>
+					<td id="monto" th:text="${ingresoegreso.monto} "></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<hr style="width: 100%; background-color: #FBF6F5">
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="nuevoIngreso" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document" style="display: table;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Nuevo ingreso/egreso</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<form th:action="@{/registrarIngresoEgreso}" method="post">
+						<div class="modal-body" th:object="${ingresoegreso}">
+							<h5>Registrar ingreso o egreso del 01/11/2019</h5>
+							<div class="form-group">
+								<label for="input-tipo">Tipo</label> <input class="form-control"
+									type="text" th:field="*{tipo}" id="input-tipo" required />
+							</div>
+							<div class="form-group">
+								<label for="input_empresa">Empresa</label> <input
+									class="form-control" type="text" th:field="*{empresa}"
+									id="input_empresa" required>
+							</div>
+							<div class="form-group">
+								<label for="input_concepto">Concepto</label> <input
+									class="form-control" type="text" th:field="*{concepto}"
+									id="input_concepto" required>
+							</div>
+							<div class="form-group">
+								<label for="input_monto">Monto</label> <input
+									class="form-control" type="text" th:field="*{monto}"
+									id="input_monto" required>
+							</div>
+						</div>
+						<input type="submit" id="submitButton" th:value="Guardar">
+						<input type="reset" id="resetButton" name="reset"
+							th:value="Reiniciar" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		window.onload = function() {
+			var pontos = /*[[${pontos}]]*/'default';
+			var data = []
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				axisY : {
+					title : "Valor en $ (miles)"
+				},
+				data : [ {
+					type : "bar",
+					text : "asd",
+					dataPoints : data
+				} ]
+			});
+
+			pontos.forEach(myFunction);
+			function myFunction(value, index, array) {
+				data.push({
+					label : value.concepto,
+					y : value.monto
+				})
+			}
+
+			chart.render();
+		}
+		/*]]>*/
+	</script>
+	<script th:src="@{/js/canvasjs.min.js}"></script>
 </body>
 </html>

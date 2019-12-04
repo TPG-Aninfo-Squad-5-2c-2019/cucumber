@@ -64,17 +64,7 @@ public class ConsultarIngresosYEgresos {
         driver.close();
     }
 
-    @Given("que estoy situado sobre los montos de los ingresos y egresos de una fecha")
-    public void aaa () {
-        driver.get("https://squad5-2c-2019.herokuapp.com/diario_ingresos_egresos");
-    }
-    
-    @When("selecciono ver detalles")
-    public void bbb () {
-        driver.findElement(By.name("btn_detalles_ingreso_egreso")).click();
-    }
-
-    @Then("el sistema me informa por cada ingreso y egreso: TIPO,EMPRESA,CONCEPTO, IMPORTE")
+    @And("me informa por cada ingreso y egreso: TIPO,EMPRESA,CONCEPTO, IMPORTE")
     public void ccc () {
         List<WebElement> ingresos_y_egresos = driver.findElements(By.cssSelector("#tabla_ingresos_y_egresos > tbody > tr"));
         assertTrue(ingresos_y_egresos.size() > 0);

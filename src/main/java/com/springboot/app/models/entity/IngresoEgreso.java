@@ -5,11 +5,11 @@ public class IngresoEgreso{
 	private String tipo;
 	private String empresa;
 	private String concepto;
-	private String monto;
+	private Double monto;
 	
 	public IngresoEgreso() {}
 	
-    public IngresoEgreso(String tipo, String empresa, String concepto, String monto) {
+    public IngresoEgreso(String tipo, String empresa, String concepto, Double monto) {
         this.tipo = tipo;
         this.empresa = empresa;
         this.concepto = concepto;
@@ -30,10 +30,10 @@ public class IngresoEgreso{
 		this.concepto = concepto;
 	}
     
-    public String getMonto() {
+    public Double getMonto() {
 		return this.monto;
 	}
-	public void setMonto(String monto) {
+	public void setMonto(Double monto) {
 		this.monto = monto;
     }
     

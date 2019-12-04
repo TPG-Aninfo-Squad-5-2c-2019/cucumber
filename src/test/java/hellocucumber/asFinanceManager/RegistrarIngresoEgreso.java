@@ -26,7 +26,7 @@ public class RegistrarIngresoEgreso {
         driver.manage().window().maximize();
     }
 
-    @Given("que estoy situado sobre el calendario de ingresos y egresos 2")
+    @Given("que estoy situado sobre calendario de ingresos y egresos")
     public void a () {
         driver.get("https://tpg-aninfo-squad5-2c2019.herokuapp.com/calendario_ingresos_egresos");
     }
